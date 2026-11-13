@@ -22,13 +22,13 @@ cd miohh-<版本>-linux-x64
 sudo bash deploy.sh deploy          # 一键：依赖 + 钉版 QQ + miohh + systemd + 启动
 sudo miohh env-check                # 部署环境门禁
 sudo systemctl enable --now miohh   # 或 sudo miohh start（开发模式）
-miohh login --serve                 # 二维码 WebUI：http://127.0.0.1:6080/
 ```
 
-内置 runtime 默认端口（仅 127.0.0.1）：
+内置 runtime 默认端口（统一入口，仅 127.0.0.1）：
+- **统一 WebUI `5099`**：`/` 是 runtime 控制台，`/login/` 是 QQ 扫码登录页
+- 内部端口（不对外暴露）：runtime WebUI `15099`、登录服务 `16080`
 - OneBot HTTP `3000` / WebSocket `3001`
-- runtime WebUI `5099`（首次启动生成密码文件 `data/runtime/webui-password`）
-- 登录 WebUI `6080`
+- runtime WebUI 密码：`data/runtime/webui-password`
 
 ## 运维
 

@@ -78,6 +78,19 @@ if [ ! -f "$PREFIX/config/service.env" ] && [ -f "$PREFIX/config/service.env.exa
   run cp -f "$PREFIX/config/service.env.example" "$PREFIX/config/service.env"
 fi
 
+# 旧版本升级：把单一 6080 登录端口迁移为"统一入口 5099 + 内部端口"。
+# 只动缺失 GATEWAY_PORT 的旧 env 文件，保留用户已有的其它变量（如 ENVCHECK_SKIP）。
+if [ "$DRY" = 0 ] && [ -f "$PREFIX/config/service.env" ] && ! grep -q '^MIOHH_GATEWAY_PORT=' "$PREFIX/config/service.env"; then
+  sed -i '/^MIOHH_LOGIN_PORT=/d' "$PREFIX/config/service.env"
+  cat >> "$PREFIX/config/service.env" <<'EOF'
+# 统一入口：/ = 控制台，/login/ = QQ 扫码登录页
+MIOHH_GATEWAY_PORT=5099
+MIOHH_WEBUI_PORT=15099
+MIOHH_LOGIN_PORT=16080
+EOF
+  log "已迁移 service.env：统一入口 5099（登录页 /login）"
+fi
+
 if [ "$NO_LINK" = 0 ] && [ "$DRY" = 0 ]; then
   ln -sf "$PREFIX/bin/miohh" /usr/local/bin/miohh
 fi

@@ -45,8 +45,9 @@ if [ -n "$QQHOME" ] && [ -d "$QQHOME/.config/QQ/versions" ]; then
   CVER="$(python3 -c 'import json,sys;print(json.load(open(sys.argv[1])).get("curVersion",""))' "$VD/config.json" 2>/dev/null || true)"
   if [ -n "$CVER" ] && [ "$CVER" = "$EXPECTED_QQ" ]; then ok "QQ launcher curVersion: $CVER"; else warn "QQ launcher curVersion 异常: ${CVER:-missing}（期望 $EXPECTED_QQ）"; fi
 fi
-LM_PORT="${MIOHH_LOGIN_PORT:-6080}"
-if ss -lnt 2>/dev/null | awk '{print $4}' | grep -q ":$LM_PORT$"; then ok "登录 WebUI 端口: $LM_PORT"; else bad "登录 WebUI 端口 $LM_PORT 未监听"; fi
+GW_PORT="${MIOHH_GATEWAY_PORT:-5099}"
+if ss -lnt 2>/dev/null | awk '{print $4}' | grep -q ":$GW_PORT$"; then ok "统一 WebUI 端口: $GW_PORT"; else bad "统一 WebUI 端口 $GW_PORT 未监听"; fi
+if curl -s -m 2 "http://127.0.0.1:$GW_PORT/login/status" 2>/dev/null | grep -q '"phase"'; then ok "登录页: http://127.0.0.1:$GW_PORT/login/"; else warn "登录页 /login 不可用"; fi
 ONEBOT=0
 if curl -s -m 2 "http://127.0.0.1:3000/get_status" 2>/dev/null | grep -q '"online":true'; then ONEBOT=1; ok "OneBot: online"; fi
 if [ "$ONEBOT" = 0 ]; then

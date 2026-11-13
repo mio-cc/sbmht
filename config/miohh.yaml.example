@@ -24,8 +24,11 @@ service:
     ws:   { host: 127.0.0.1, port: 3001, token: "auto" }
   webui:
     host: 127.0.0.1
-    port: 5099
+    gateway_port: 5099      # 统一入口：/ = 控制台，/login/ = QQ 登录页
+    port: 15099             # 内部端口（勿暴露公网）
     password: "auto"
+  login:
+    port: 16080             # 内部登录服务端口
 
 logging:
   level: info

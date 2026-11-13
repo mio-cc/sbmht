@@ -16,11 +16,21 @@ import signal
 import socket
 import subprocess
 import sys
+import threading
 import time
+import http.client
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 ROOT = os.environ.get("MIOHH_ROOT", "/opt/miohh")
 DISPLAY_NUM = os.environ.get("MIOHH_DISPLAY") or os.environ.get("DISPLAY") or ":1"
-LOGIN_PORT = int(os.environ.get("MIOHH_LOGIN_PORT", "6080"))
+# 统一入口：对外只开 GATEWAY_PORT（默认 5099），QQ 登录页挂在 /login，
+# 其余请求反代到 runtime WebUI（内部端口，默认 15099），登录管理器内部端口默认 16080。
+GATEWAY_PORT = int(os.environ.get("MIOHH_GATEWAY_PORT", "5099"))
+WEBUI_PORT = int(os.environ.get("MIOHH_WEBUI_PORT", "15099"))
+LOGIN_PORT = int(os.environ.get("MIOHH_LOGIN_PORT", "16080"))
+if WEBUI_PORT == GATEWAY_PORT:
+    WEBUI_PORT = GATEWAY_PORT + 1
+    print("[miohh] MIOHH_WEBUI_PORT 与网关端口冲突，runtime 内部端口改用 %d" % WEBUI_PORT, flush=True)
 LOG = os.path.join(ROOT, "logs", "miohh.log")
 RUN = os.path.join(ROOT, "run")
 QQ_BIN = os.environ.get("MIOHH_QQ_BIN", "/opt/QQ/qq")
@@ -268,10 +278,144 @@ def start_login_manager():
     p = start_child("login-manager", argv)
     for _ in range(50):
         if port_open("127.0.0.1", LOGIN_PORT):
-            log("登录 WebUI: http://127.0.0.1:%d/" % LOGIN_PORT)
+            log("登录服务: 内部 127.0.0.1:%d（对外 /login）" % LOGIN_PORT)
             break
         time.sleep(0.1)
     return p
+
+
+class GatewayHandler(BaseHTTPRequestHandler):
+    """统一入口：/login* → 登录管理器；其余 → runtime WebUI（支持 WebSocket 透传）。"""
+
+    server_version = "miohh"
+    sys_version = ""
+
+    def log_message(self, fmt, *args):
+        pass
+
+    def _target(self):
+        path = self.path
+        if path == "/login" or path.startswith("/login/") or path.startswith("/login?"):
+            rest = path[len("/login"):]
+            return LOGIN_PORT, (rest or "/")
+        return WEBUI_PORT, path
+
+    def _is_ws(self):
+        return self.headers.get("Upgrade", "").lower() == "websocket"
+
+    def _proxy(self):
+        port, path = self._target()
+        if self._is_ws():
+            self._proxy_ws(port, path)
+            return
+        conn = None
+        try:
+            conn = http.client.HTTPConnection("127.0.0.1", port, timeout=30)
+            try:
+                length = int(self.headers.get("Content-Length") or 0)
+            except ValueError:
+                length = 0
+            body = self.rfile.read(length) if length > 0 else None
+            headers = {}
+            for k, v in self.headers.items():
+                if k.lower() in ("host", "connection", "proxy-connection", "keep-alive", "transfer-encoding"):
+                    continue
+                headers[k] = v
+            conn.request(self.command, path, body=body, headers=headers)
+            resp = conn.getresponse()
+            data = resp.read()
+            self.send_response(resp.status, resp.reason)
+            for k, v in resp.getheaders():
+                if k.lower() in ("connection", "transfer-encoding", "content-length"):
+                    continue
+                self.send_header(k, v)
+            self.send_header("Content-Length", str(len(data)))
+            self.end_headers()
+            if self.command != "HEAD":
+                self.wfile.write(data)
+        except Exception as e:
+            try:
+                self.send_error(502, "miohh gateway: %s" % e)
+            except Exception:
+                pass
+        finally:
+            if conn is not None:
+                try:
+                    conn.close()
+                except Exception:
+                    pass
+
+    def _proxy_ws(self, port, path):
+        try:
+            up = socket.create_connection(("127.0.0.1", port), timeout=10)
+        except OSError:
+            try:
+                self.send_error(502, "websocket upstream unavailable")
+            except Exception:
+                pass
+            return
+        try:
+            lines = ["%s %s HTTP/1.1" % (self.command, path)]
+            for k, v in self.headers.items():
+                if k.lower() in ("host", "connection", "proxy-connection"):
+                    continue
+                lines.append("%s: %s" % (k, v))
+            lines.append("Host: 127.0.0.1:%d" % port)
+            up.sendall(("\r\n".join(lines) + "\r\n\r\n").encode("latin-1", "replace"))
+            import select
+            socks = [self.connection, up]
+            while True:
+                try:
+                    r, _, x = select.select(socks, [], [], 120)
+                except (OSError, ValueError):
+                    return
+                if not r:
+                    continue
+                for s in r:
+                    try:
+                        data = s.recv(65536)
+                    except OSError:
+                        return
+                    if not data:
+                        return
+                    other = up if s is self.connection else self.connection
+                    try:
+                        other.sendall(data)
+                    except OSError:
+                        return
+        finally:
+            try:
+                up.close()
+            except Exception:
+                pass
+
+    def do_GET(self):
+        if self.path == "/login":
+            self.send_response(302)
+            self.send_header("Location", "/login/")
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return
+        self._proxy()
+
+    do_POST = _proxy
+    do_PUT = _proxy
+    do_DELETE = _proxy
+    do_PATCH = _proxy
+    do_HEAD = _proxy
+    do_OPTIONS = _proxy
+
+
+def start_gateway():
+    try:
+        srv = ThreadingHTTPServer(("127.0.0.1", GATEWAY_PORT), GatewayHandler)
+        srv.daemon_threads = True
+    except OSError as e:
+        log("统一 WebUI 端口 %d 启动失败: %s" % (GATEWAY_PORT, e))
+        return None
+    threading.Thread(target=srv.serve_forever, daemon=True).start()
+    log("统一 WebUI: http://127.0.0.1:%d/ （QQ 登录: /login）" % GATEWAY_PORT)
+    return srv
 
 
 def runtime_enabled():
@@ -296,7 +440,7 @@ def start_runtime():
             f.write(secrets.token_hex(12) + "\n")
         os.chmod(pwd_file, 0o600)
     password = os.environ.get("MIOHH_WEBUI_PASSWORD") or open(pwd_file, encoding="utf-8").read().strip()
-    webui_port = os.environ.get("MIOHH_WEBUI_PORT", "5099")
+    webui_port = WEBUI_PORT
     env = {
         "MIOHHAPP_ACCEPT_EULA": "1",
         "MIOHHAPP_UPDATE_CHECK": "0",
@@ -307,12 +451,12 @@ def start_runtime():
         "MIOHHAPP_LOG_LEVEL": os.environ.get("MIOHH_RUNTIME_LOG_LEVEL", "info"),
         "MIOHHAPP_ONEBOT_HTTP_PORT": os.environ.get("MIOHH_ONEBOT_HTTP_PORT", "3000"),
         "MIOHHAPP_ONEBOT_WS_PORT": os.environ.get("MIOHH_ONEBOT_WS_PORT", "3001"),
-        "MIOHHAPP_WEBUI_PORT": webui_port,
+        "MIOHHAPP_WEBUI_PORT": str(webui_port),
         "MIOHHAPP_WEBUI_HOST": "127.0.0.1",
         "MIOHHAPP_WEBUI_BOOTSTRAP_PASSWORD": password,
     }
     p = start_child("runtime", [node_bin, entry], env=env, cwd=work)
-    log("runtime WebUI: http://127.0.0.1:%s/ （密码文件 %s）" % (webui_port, pwd_file))
+    log("runtime WebUI: 内部 127.0.0.1:%s（对外统一走 :%s）密码文件 %s" % (webui_port, GATEWAY_PORT, pwd_file))
     return p
 
 
@@ -386,6 +530,7 @@ def main():
         start_runtime()
     else:
         log("bundled runtime 未启用/不存在（可设 MIOHH_RUNTIME=1 或放入 runtime/bundled）")
+    start_gateway()
     restarts = {}
     qq_restarts = 0
     while not stopping:
