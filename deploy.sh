@@ -75,6 +75,15 @@ health_wait() {
     sleep 2
   done
   warn "健康检查超时（${HEALTH_TIMEOUT}s）：$(health_json)"
+  # 自动 dump 失败原因，避免只看到 timeout 无从下手
+  local svc; svc="$(svc_name)"
+  if [ -n "$svc" ]; then
+    warn "---- systemctl status $svc ----"
+    systemctl status "$svc" --no-pager 2>&1 | head -20
+    warn "---- journalctl -u $svc (最近 40 行) ----"
+    journalctl -u "$svc" -n 40 --no-pager 2>&1 | tail -40
+  fi
+  [ -x "$PREFIX/bin/miohh" ] && { warn "---- env-check ----"; MIOHH_ROOT="$PREFIX" "$PREFIX/bin/miohh" env-check 2>&1 | tail -20 || true; }
   return 1
 }
 

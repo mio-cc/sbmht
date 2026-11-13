@@ -30,7 +30,14 @@ if [ "$SKIP_DEPS" = 0 ] && [ "$DRY" = 0 ]; then
     apt-get update -qq || true
     apt-get install -y --no-install-recommends xvfb imagemagick python3 curl ca-certificates fonts-wqy-zenhei logrotate >/dev/null 2>&1 || \
       warn "依赖安装部分失败，请手动补装（xvfb/imagemagick/python3/fonts）"
-    locale-gen zh_CN.UTF-8 >/dev/null 2>&1 || true
+    # locale：确保 zh_CN.UTF-8 真正可用（只跑 locale-gen 不够，必须先写 /etc/locale.gen）
+    if command -v locale-gen >/dev/null 2>&1; then
+      if [ -f /etc/locale.gen ]; then
+        grep -qE '^[#[:space:]]*zh_CN\.UTF-8[[:space:]]+UTF-8' /etc/locale.gen || echo 'zh_CN.UTF-8 UTF-8' >> /etc/locale.gen
+        sed -i 's/^[#[:space:]]*\(zh_CN\.UTF-8[[:space:]]\+UTF-8\)/\1/' /etc/locale.gen
+      fi
+      locale-gen zh_CN.UTF-8 >/dev/null 2>&1 || true
+    fi
   else
     warn "非 Debian/Ubuntu：请手动安装 xvfb/imagemagick/python3/字体"
   fi

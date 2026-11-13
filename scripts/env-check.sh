@@ -35,13 +35,27 @@ case "$DISTRO" in
   *Ubuntu*|*Debian*) ok "发行版: $DISTRO" ;;
   *) warn "发行版: $DISTRO（建议 Ubuntu/Debian 官方镜像）" ;;
 esac
-[ "$NPROC" -ge 2 ] && ok "vCPU: $NPROC" || bad "vCPU: $NPROC（建议 ≥2）"
-[ "$MEM_MB" -ge 3500 ] && ok "内存: ${MEM_MB}MB" || bad "内存: ${MEM_MB}MB（建议 ≥4GB）"
+if [ "$NPROC" -ge 2 ]; then
+  ok "vCPU: $NPROC"
+else
+  warn "vCPU: $NPROC（建议 ≥2；低配可运行但会慢）"
+fi
+SWAP_MB="$(awk '/SwapTotal/{printf "%d", $2/1024}' /proc/meminfo 2>/dev/null || echo 0)"
+if [ "$MEM_MB" -ge 3500 ]; then
+  ok "内存: ${MEM_MB}MB"
+elif [ "$MEM_MB" -ge 1500 ]; then
+  warn "内存: ${MEM_MB}MB（建议 ≥4GB；低配需 swap，当前 swap=${SWAP_MB}MB）"
+else
+  bad "内存: ${MEM_MB}MB（最低要求 ≥1.5GB）"
+fi
+if [ "$MEM_MB" -lt 3500 ] && [ "${SWAP_MB:-0}" -lt 2048 ]; then
+  warn "swap: ${SWAP_MB}MB（低配建议 ≥2GB swap：fallocate -l 2G /swapfile ...）"
+fi
 [ "${ROOTFS_FREE:-0}" -ge 20000 ] && ok "根分区可用: ${ROOTFS_FREE}MB" || warn "根分区可用: ${ROOTFS_FREE}MB（建议 ≥20GB）"
 if command -v locale >/dev/null 2>&1 && locale -a 2>/dev/null | grep -qiE 'zh_CN\.utf-?8'; then
   ok "locale: zh_CN.UTF-8 可用"
 else
-  bad "locale: 缺少 zh_CN.UTF-8（安装阶段执行 locale-gen）"
+  warn "locale: 缺少 zh_CN.UTF-8（建议：apt install locales && sed -i 's/^# *zh_CN.UTF-8/zh_CN.UTF-8/' /etc/locale.gen && locale-gen）"
 fi
 FONTS="$(fc-list 2>/dev/null | wc -l || echo 0)"
 [ "$FONTS" -ge 100 ] && ok "字体: $FONTS" || warn "字体: $FONTS（建议安装常见字体集）"
