@@ -28,7 +28,7 @@ if [ "$SKIP_DEPS" = 0 ] && [ "$DRY" = 0 ]; then
   if command -v apt-get >/dev/null 2>&1; then
     export DEBIAN_FRONTEND=noninteractive
     apt-get update -qq || true
-    apt-get install -y --no-install-recommends xvfb imagemagick python3 curl ca-certificates fonts-wqy-zenhei logrotate >/dev/null 2>&1 || \
+    apt-get install -y --no-install-recommends xvfb imagemagick xdotool x11-utils python3 python3-pil curl ca-certificates fonts-wqy-zenhei logrotate >/dev/null 2>&1 || \
       warn "依赖安装部分失败，请手动补装（xvfb/imagemagick/python3/fonts）"
     # locale：确保 zh_CN.UTF-8 真正可用（只跑 locale-gen 不够，必须先写 /etc/locale.gen）
     if command -v locale-gen >/dev/null 2>&1; then

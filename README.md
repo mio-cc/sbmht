@@ -25,7 +25,8 @@ sudo systemctl enable --now miohh   # 或 sudo miohh start（开发模式）
 ```
 
 内置 runtime 默认端口（统一入口，仅 127.0.0.1）：
-- **统一 WebUI `5099`**：`/` 是 runtime 控制台，`/login/` 是 QQ 扫码登录页
+- **统一 WebUI `5099`**：未登录时 `/` 自动显示 QQ 扫码登录页；登录后 `/` 自动切换为 runtime 控制台
+- `/login/` 仅作兼容入口（页面本身已内嵌在 `/`，不再需要单独 URL）
 - 内部端口（不对外暴露）：runtime WebUI `15099`、登录服务 `16080`
 - OneBot HTTP `3000` / WebSocket `3001`
 - runtime WebUI 密码：`data/runtime/webui-password`

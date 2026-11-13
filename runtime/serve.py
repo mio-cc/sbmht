@@ -293,11 +293,26 @@ class GatewayHandler(BaseHTTPRequestHandler):
     def log_message(self, fmt, *args):
         pass
 
+    def _logged_in(self):
+        try:
+            with open(os.path.join(RUN, "login.state"), encoding="utf-8") as f:
+                return f.read().strip() == "logged_in"
+        except OSError:
+            return False
+
     def _target(self):
         path = self.path
-        if path == "/login" or path.startswith("/login/") or path.startswith("/login?"):
+        base = path.split("?", 1)[0]
+        if base == "/login" or base.startswith("/login/"):
             rest = path[len("/login"):]
             return LOGIN_PORT, (rest or "/")
+        if not self._logged_in():
+            # 未登录时，根路径就是登录页（不再需要单独的 /login URL），
+            # 登录页用到的相对资源也转给登录服务。
+            if base in ("/", "/index.html"):
+                return LOGIN_PORT, path
+            if base in ("/qr.png", "/status", "/restart", "/api/quicklogin"):
+                return LOGIN_PORT, path
         return WEBUI_PORT, path
 
     def _is_ws(self):
