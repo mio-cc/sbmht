@@ -460,6 +460,42 @@ def start_runtime():
     return p
 
 
+def kill_stale_miohh():
+    """清理上一实例残留的 runtime/login-manager 进程（端口冲突根因）。
+
+    systemd 重启/超时/更新时，旧 serve 的清理可能没来得及执行，残留进程
+    继续占着 3000/3001/15099/16080，导致新实例 env-check 端口占用失败、
+    service 反复重启（对外表现为 502）。
+    """
+    me = os.getpid()
+    markers = (
+        os.path.join(ROOT, "runtime", "bundled", "index.mjs"),
+        os.path.join(ROOT, "tools", "login_manager.py"),
+    )
+    killed = []
+    try:
+        for name in os.listdir("/proc"):
+            if not name.isdigit():
+                continue
+            pid = int(name)
+            if pid == me:
+                continue
+            cmd = _pid_cmdline(pid)
+            if not cmd:
+                continue
+            if any(m in cmd for m in markers):
+                try:
+                    os.kill(pid, signal.SIGKILL)
+                    killed.append(pid)
+                except OSError:
+                    pass
+    except OSError:
+        pass
+    if killed:
+        log("清理残留 miohh 子进程: %s" % killed)
+        time.sleep(0.5)
+
+
 def cleanup(*_args):
     global stopping
     if stopping:
@@ -512,6 +548,7 @@ def main():
     signal.signal(signal.SIGTERM, cleanup)
     signal.signal(signal.SIGINT, cleanup)
     log("miohh 启动：root=%s display=%s" % (ROOT, DISPLAY_NUM))
+    kill_stale_miohh()
     if not ensure_profile():
         log("档案生成失败（继续尝试）")
     if not ensure_display():
