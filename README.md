@@ -53,3 +53,21 @@ miohh logs -f           # 日志
 - 仅用于自有/已授权账号与合规用途；不得用于违反腾讯服务条款或当地法律的行为。
 - 第三方组件许可与声明见 `NOTICE`；内置运行时随包携带自身 EULA/PRIVACY（`runtime/bundled/`）。
 - 本项目与腾讯无关联，QQ 客户端需自行安装并遵守其许可。
+
+## 从源码部署（Linux，公开仓库 HTTPS 免密钥）
+
+```bash
+# 公开仓库用 HTTPS 即可，无需 SSH key（SSH 地址才需要 key）
+git clone https://github.com/mio-cc/sbmht.git miohh
+cd miohh
+
+# 仓库未包含 runtime 的 node 可执行文件（126MB，超 GitHub 单文件限制），任选其一：
+#   A. 从发布包复制：cp miohh-0.1.0-linux-x64/runtime/bundled/node runtime/bundled/node
+#   B. 使用系统 Node 24（^24.22.1 或 >=26.12.1）
+
+sudo bash deploy.sh deploy     # 依赖 + 钉版 QQ + miohh + systemd + 启动 + 健康检查
+sudo bash deploy.sh status
+```
+
+> 更新：`git -C miohh pull --ff-only` 后执行 `sudo bash deploy.sh pull`（或 `deploy.sh update --from <包>`）。
+> 注意：公开仓库**拉取**免认证，但 **push** 仍需 Deploy Key / 账号 SSH key / PAT。
