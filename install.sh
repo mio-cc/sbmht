@@ -92,6 +92,29 @@ if [ "$NO_SYSTEMD" = 0 ] && [ "$DRY" = 0 ] && [ -d /etc/systemd/system ]; then
 fi
 
 if [ "$DRY" = 0 ]; then
+  # 确保有一个可用于运行 QQ 的普通用户（envsim 会降权到该用户）。
+  # 全新 VPS 常只有 root：没有普通用户时 envsim 只能以 root 回退运行，
+  # 且缺少 HOME 会导致 QQ 启动即崩溃。这里自动创建 user（uid 1000）。
+  has_runner=0
+  while IFS=: read -r _name _pw _uid _gid _gecos _home _shell; do
+    case "$_uid" in ''|*[!0-9]*) continue ;; esac
+    [ "$_uid" -ge 1000 ] 2>/dev/null || continue
+    [ "$_uid" -lt 65534 ] 2>/dev/null || continue
+    [ -d "$_home" ] || continue
+    has_runner=1
+    break
+  done < /etc/passwd
+  if [ "$has_runner" = 0 ]; then
+    if command -v useradd >/dev/null 2>&1; then
+      useradd -m -s /bin/bash user >/dev/null 2>&1 || warn "创建运行用户 user 失败（QQ 将以 root 回退运行）"
+      mkdir -p "/run/user/$(id -u user 2>/dev/null || echo 1000)"
+      chown "user" "/run/user/$(id -u user 2>/dev/null || echo 1000)" 2>/dev/null || true
+      chmod 700 "/run/user/$(id -u user 2>/dev/null || echo 1000)" 2>/dev/null || true
+      log "已创建运行用户：user（envsim 将降权运行 QQ）"
+    else
+      warn "缺少 useradd，无法创建普通用户（QQ 将以 root 回退运行）"
+    fi
+  fi
   bash "$PREFIX/scripts/profile-gen.sh" >/dev/null 2>&1 || warn "profile-gen 失败（可在启动时自动重试）"
   MIOHH_ROOT="$PREFIX" bash "$PREFIX/scripts/qq-guard.sh" >/dev/null 2>&1 || warn "qq-guard 首次执行失败（timer 会重试）"
 fi

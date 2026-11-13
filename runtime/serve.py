@@ -8,7 +8,9 @@
 5) 启动 bundled runtime（OneBot/WebUI/注入；存在时自动）
 6) 守护/重启子进程，SIGTERM 时清理
 """
+import json
 import os
+import pwd
 import secrets
 import signal
 import socket
@@ -127,6 +129,39 @@ def qq_alive():
         return False
 
 
+def _runner_ident():
+    """QQ 运行身份的 HOME/USER/LOGNAME/XDG_RUNTIME_DIR。
+
+    背景：serve 给 QQ 传的是最小环境（防指纹泄漏），envsim 在降权分支会自动补
+    这些变量；但如果机器上没有普通用户（全新 VPS 常见），envsim 会走 root 回退
+    分支——此前该分支缺 HOME，QQ/Electron 在无 HOME 环境下会 CHECK 崩溃
+    （dmesg 报 qq trap invalid opcode/ud2）。这里统一兜底，保证两种分支都有 HOME。
+    """
+    user = ""
+    try:
+        with open(PROFILE, encoding="utf-8") as f:
+            user = str((json.load(f) or {}).get("user") or "")
+    except Exception:
+        pass
+    try:
+        pw = pwd.getpwnam(user) if user else pwd.getpwuid(os.getuid())
+        uid = pw.pw_uid
+        runtime = os.environ.get("XDG_RUNTIME_DIR") or ("/run/user/%d" % uid if uid > 0 else "/tmp/miohh-runtime-%d" % uid)
+        return {
+            "HOME": pw.pw_dir or "/root",
+            "USER": pw.pw_name,
+            "LOGNAME": pw.pw_name,
+            "XDG_RUNTIME_DIR": runtime,
+        }
+    except Exception:
+        return {
+            "HOME": os.environ.get("HOME", "/root"),
+            "USER": os.environ.get("USER", "root"),
+            "LOGNAME": os.environ.get("LOGNAME", "root"),
+            "XDG_RUNTIME_DIR": os.environ.get("XDG_RUNTIME_DIR", "/tmp"),
+        }
+
+
 def start_qq():
     envsim = os.path.join(ROOT, "envsim", "envsim.sh")
     qq_args = [QQ_BIN, "--no-sandbox", "--disable-gpu", "--enable-unsafe-swiftshader"]
@@ -138,6 +173,7 @@ def start_qq():
             "DISPLAY": DISPLAY_NUM,
             "MIOHH_RUN_DIR": RUN,
         }
+        minimal.update(_runner_ident())
         argv = [sys.executable, QQ_LAUNCH, "bash", envsim, PROFILE,
                 "dbus-run-session", "--"] + qq_args
         try:
