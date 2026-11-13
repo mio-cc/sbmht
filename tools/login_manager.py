@@ -71,7 +71,9 @@ def grab_png(force=False):
                        check=True, capture_output=True, timeout=10)
         with open(path, "rb") as f:
             data = f.read()
-    except Exception:
+        STATE["err"] = ""
+    except Exception as e:
+        STATE["err"] = (str(e) or "screenshot failed")[:200]
         data = b""
     with LOCK:
         if data:
@@ -116,7 +118,8 @@ class Handler(BaseHTTPRequestHandler):
         if self.path.startswith("/qr.png"):
             data = grab_png()
             if not data:
-                return self._send(503, b"no display", "text/plain")
+                detail = ("no display: %s" % STATE.get("err", ""))[:300]
+                return self._send(503, detail.encode(), "text/plain")
             return self._send(200, data, "image/png")
         if self.path.startswith("/status"):
             body = json.dumps({"phase": phase(), "qq_running": qq_running(),

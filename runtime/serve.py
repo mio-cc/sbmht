@@ -27,6 +27,8 @@ QQ_BIN = os.environ.get("MIOHH_QQ_BIN", "/opt/QQ/qq")
 PROFILE = os.path.join(ROOT, "profiles", "auto.json")
 QQ_LAUNCH = os.path.join(ROOT, "runtime", "qq_launch.py")
 QQ_PID_FILE = os.path.join(RUN, "qq.pid")
+QQ_SPAWNED_AT = 0.0
+QQ_START_GRACE = float(os.environ.get("MIOHH_QQ_START_GRACE", "120"))
 children = []
 stopping = False
 
@@ -72,19 +74,46 @@ def display_socket(display):
     return "/tmp/.X11-unix/X%s" % n.split(".")[0]
 
 
+def display_alive(display):
+    """真正探测 X 显示是否可连接（避免残留 socket 骗过启动逻辑）。"""
+    try:
+        s = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        s.settimeout(0.5)
+        s.connect(display_socket(display))
+        s.close()
+        return True
+    except OSError:
+        return False
+
+
 def ensure_display():
     sock = display_socket(DISPLAY_NUM)
-    if os.path.exists(sock):
+    if os.path.exists(sock) and display_alive(DISPLAY_NUM):
         log("复用已有显示 %s" % DISPLAY_NUM)
         return True
+    if os.path.exists(sock):
+        # Xvfb 被杀后会留下 /tmp/.X11-unix/Xn 和 /tmp/.Xn-lock；残留 socket
+        # 会让旧逻辑误判"显示已存在"，QQ 连不上 X 直接崩溃。
+        log("显示 %s 的套接字存在但不可连（Xvfb 已死），清理后重启 Xvfb" % DISPLAY_NUM)
+        try:
+            os.unlink(sock)
+        except OSError:
+            pass
+    disp_n = DISPLAY_NUM.lstrip(":").split(".")[0]
+    lock = "/tmp/.X%s-lock" % disp_n
     try:
-        subprocess.Popen(["Xvfb", DISPLAY_NUM, "-screen", "0", "1920x1080x24"],
+        os.unlink(lock)
+    except OSError:
+        pass
+    try:
+        # -ac：本机 headless 场景允许本地客户端（QQ 以普通用户运行）连接显示
+        subprocess.Popen(["Xvfb", DISPLAY_NUM, "-screen", "0", "1920x1080x24", "-ac", "-nolisten", "tcp"],
                          stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, start_new_session=True)
     except FileNotFoundError:
         log("Xvfb 未安装（apt install xvfb）")
         return False
     for _ in range(50):
-        if os.path.exists(sock):
+        if os.path.exists(sock) and display_alive(DISPLAY_NUM):
             log("Xvfb 已启动 %s" % DISPLAY_NUM)
             return True
         time.sleep(0.1)
@@ -113,19 +142,56 @@ def start_child(name, argv, env=None, cwd=None):
     return p
 
 
+def _pid_cmdline(pid):
+    try:
+        with open("/proc/%d/cmdline" % pid, "rb") as f:
+            return f.read().replace(b"\0", b" ").decode("utf-8", "replace").strip()
+    except OSError:
+        return ""
+
+
+def cleanup_stale_qq():
+    """清理上一次崩溃残留的 launcher 链进程（dbus-run-session/envsim）。
+
+    qq.pid 记录的是 daemon 化后的进程链 PID；QQ 本体崩溃后，链进程可能还活着，
+    导致 qq_alive 误判、也会让端口/日志混乱。
+    """
+    try:
+        with open(QQ_PID_FILE, encoding="utf-8") as f:
+            pid = int(f.read().strip())
+    except (OSError, ValueError):
+        return
+    cmd = _pid_cmdline(pid)
+    if not cmd:
+        return
+    if QQ_BIN in cmd and "unshare" not in cmd and "dbus-run-session" not in cmd and "envsim" not in cmd:
+        return  # 这已经是 QQ 本体，交给正常守护逻辑
+    try:
+        os.kill(pid, signal.SIGTERM)
+        log("清理残留 QQ 启动链 pid=%d" % pid)
+    except OSError:
+        pass
+
+
 def qq_alive():
+    # 以真实 QQ 进程为准（argv0 是 /opt/QQ/qq）；启动宽限期内允许 launcher 链存活。
+    try:
+        r = subprocess.run(["pgrep", "-f", "^%s --no-sandbox" % QQ_BIN],
+                           capture_output=True, timeout=3)
+        if r.stdout.strip():
+            return True
+    except Exception:
+        pass
     try:
         with open(QQ_PID_FILE, encoding="utf-8") as f:
             pid = int(f.read().strip())
         os.kill(pid, 0)
-        return True
+        if time.time() - QQ_SPAWNED_AT < QQ_START_GRACE:
+            return True
+        cmd = _pid_cmdline(pid)
+        # 链进程还活着但没有任何 QQ 进程 → 视为已死
+        return bool(cmd and QQ_BIN in cmd and "dbus-run-session" not in cmd and "unshare" not in cmd)
     except (OSError, ValueError):
-        pass
-    try:
-        r = subprocess.run(["pgrep", "-f", "^%s --no-sandbox" % QQ_BIN],
-                           capture_output=True, timeout=3)
-        return bool(r.stdout.strip())
-    except Exception:
         return False
 
 
@@ -163,6 +229,9 @@ def _runner_ident():
 
 
 def start_qq():
+    global QQ_SPAWNED_AT
+    cleanup_stale_qq()
+    QQ_SPAWNED_AT = time.time()
     envsim = os.path.join(ROOT, "envsim", "envsim.sh")
     qq_args = [QQ_BIN, "--no-sandbox", "--disable-gpu", "--enable-unsafe-swiftshader"]
     if os.path.isfile(envsim) and os.path.isfile(PROFILE) and os.path.isfile(QQ_LAUNCH):
