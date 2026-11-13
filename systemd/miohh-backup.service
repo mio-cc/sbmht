@@ -1,0 +1,8 @@
+[Unit]
+Description=miohh backup
+
+[Service]
+Type=oneshot
+ExecStart=/opt/miohh/bin/miohh backup
+Nice=10
+IOSchedulingClass=idle

@@ -1,0 +1,6 @@
+[Unit]
+Description=miohh healthcheck
+
+[Service]
+Type=oneshot
+ExecStart=/opt/miohh/bin/miohh healthcheck --json

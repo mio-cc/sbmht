@@ -1,0 +1,1954 @@
+{
+ "binary": "D:\\整理\\nc\\qq\\linux\\extract\\3.2.32-52194\\opt\\QQ\\resources\\app\\wrapper.node",
+ "sha256": "7882b8e3055cd38584861042befacd8be9939896f5cbbca6fa4a230926b48526",
+ "size": 149670240,
+ "elf_min_vaddr": 0,
+ "strings": {
+  "NodeIKernelLoginService::": [
+   {
+    "file_off": 8581799,
+    "va": 8581799,
+    "rva": 8581799,
+    "ctx": "rtPolling.assertion (argc == 0) failed: NodeIKernelLoginService::startPolling needs 0 arguments.assertion (argc == 0) failed: NodeIKernelLoginSer"
+   },
+   {
+    "file_off": 8581885,
+    "va": 8581885,
+    "rva": 8581885,
+    "ctx": "arguments.assertion (argc == 0) failed: NodeIKernelLoginService::abortPolling needs 0 arguments.assertion (cpp_impl) failed: NodeIKernelLoginServ"
+   },
+   {
+    "file_off": 8581970,
+    "va": 8581970,
+    "rva": 8581970,
+    "ctx": " arguments.assertion (cpp_impl) failed: NodeIKernelLoginService::loginUnusualDevice : implementation of IKernelLoginService is not valid.assertio"
+   },
+   {
+    "file_off": 8582097,
+    "va": 8582097,
+    "rva": 8582097,
+    "ctx": "not valid.assertion (argc == 1) failed: NodeIKernelLoginService::loadNoLoginUnitedConfig needs 1 arguments.assertion (argc == 1) failed: NodeIKer"
+   },
+   {
+    "file_off": 8582194,
+    "va": 8582194,
+    "rva": 8582194,
+    "ctx": "arguments.assertion (argc == 1) failed: NodeIKernelLoginService::checkSms needs 1 arguments.needRemindCancellatedStatus.configData.d2.allowGateWa"
+   },
+   {
+    "file_off": 8687677,
+    "va": 8687677,
+    "rva": 8687677,
+    "ctx": "fo.aioPath.assertion (cpp_impl) failed: NodeIKernelLoginService::getQRCodePicture : implementation of IKernelLoginService is not valid.assertion "
+   },
+   {
+    "file_off": 8687802,
+    "va": 8687802,
+    "rva": 8687802,
+    "ctx": "not valid.assertion (argc == 1) failed: NodeIKernelLoginService::resetLoginInfo needs 1 arguments.verifySign.appId.uinToken.isQuickLogin.a2.bindU"
+   },
+   {
+    "file_off": 8794903,
+    "va": 8794903,
+    "rva": 8794903,
+    "ctx": "alid.stage.assertion (cpp_impl) failed: NodeIKernelLoginService::registerUnitedConfigPushGroupList : implementation of IKernelLoginService is not"
+   }
+  ],
+  "IKernelLoginService": [
+   {
+    "file_off": 8581803,
+    "va": 8581803,
+    "rva": 8581803,
+    "ctx": "lling.assertion (argc == 0) failed: NodeIKernelLoginService::startPolling needs 0 arguments.assertion (argc == 0) failed: NodeIKernelLoginS"
+   },
+   {
+    "file_off": 8581889,
+    "va": 8581889,
+    "rva": 8581889,
+    "ctx": "ments.assertion (argc == 0) failed: NodeIKernelLoginService::abortPolling needs 0 arguments.assertion (cpp_impl) failed: NodeIKernelLoginSe"
+   },
+   {
+    "file_off": 8581974,
+    "va": 8581974,
+    "rva": 8581974,
+    "ctx": "uments.assertion (cpp_impl) failed: NodeIKernelLoginService::loginUnusualDevice : implementation of IKernelLoginService is not valid.assert"
+   },
+   {
+    "file_off": 8582034,
+    "va": 8582034,
+    "rva": 8582034,
+    "ctx": ":loginUnusualDevice : implementation of IKernelLoginService is not valid.assertion (argc == 1) failed: NodeIKernelLoginService::loadNoLogin"
+   },
+   {
+    "file_off": 8582101,
+    "va": 8582101,
+    "rva": 8582101,
+    "ctx": "valid.assertion (argc == 1) failed: NodeIKernelLoginService::loadNoLoginUnitedConfig needs 1 arguments.assertion (argc == 1) failed: NodeIK"
+   },
+   {
+    "file_off": 8582198,
+    "va": 8582198,
+    "rva": 8582198,
+    "ctx": "ments.assertion (argc == 1) failed: NodeIKernelLoginService::checkSms needs 1 arguments.needRemindCancellatedStatus.configData.d2.allowGate"
+   },
+   {
+    "file_off": 8687681,
+    "va": 8687681,
+    "rva": 8687681,
+    "ctx": "ioPath.assertion (cpp_impl) failed: NodeIKernelLoginService::getQRCodePicture : implementation of IKernelLoginService is not valid.assertio"
+   },
+   {
+    "file_off": 8687739,
+    "va": 8687739,
+    "rva": 8687739,
+    "ctx": "e::getQRCodePicture : implementation of IKernelLoginService is not valid.assertion (argc == 1) failed: NodeIKernelLoginService::resetLoginI"
+   }
+  ],
+  "NodeIKernelLoginListener": [
+   {
+    "file_off": 9676470,
+    "va": 9676470,
+    "rva": 9676470,
+    "ctx": "i_interface/desktop_qq/interface/nodejs/NodeIKernelLoginListener.cpp.onQRCodeSessionUserScaned.assertion (argc == 0) failed: NodeIQQNTWrapperSes"
+   },
+   {
+    "file_off": 13201465,
+    "va": 13201465,
+    "rva": 13201465,
+    "ctx": "e__SN_E_.NSt2Cr20__shared_ptr_emplaceI24NodeIKernelLoginListenerNS_9allocatorIS1_EEEE.NSt2Cr20__shared_ptr_emplaceI29NodeILoginMiscDataGetCallba"
+   },
+   {
+    "file_off": 13205158,
+    "va": 13205158,
+    "rva": 13205158,
+    "ctx": "...|..J|..J|...}..`.......)...)...}...24NodeIKernelLoginListener.N2nt7wrapper20IKernelLoginListenerE.NSt2Cr23enable_shared_from_thisI24NodeIKern"
+   },
+   {
+    "file_off": 13205253,
+    "va": 13205253,
+    "rva": 13205253,
+    "ctx": "enerE.NSt2Cr23enable_shared_from_thisI24NodeIKernelLoginListenerEE.NSt2Cr20__shared_ptr_emplaceI26NodeIOPSafePwdEditListenerNS_9allocatorIS1_EEE"
+   }
+  ],
+  "getQRCodePicture": [
+   {
+    "file_off": 8687702,
+    "va": 8687702,
+    "rva": 8687702,
+    "ctx": "_impl) failed: NodeIKernelLoginService::getQRCodePicture : implementation of IKernelLoginService is not valid.assertion (argc == 1) fail"
+   },
+   {
+    "file_off": 9676259,
+    "va": 9676259,
+    "rva": 9676259,
+    "ctx": "endSSORequest.getMarkdownPlainText.spec.getQRCodePicture.handleResult.faceResult.isAutoLogin.newDeviceCheckSig.../../djinni_interface/de"
+   },
+   {
+    "file_off": 11095663,
+    "va": 11095663,
+    "rva": 11095663,
+    "ctx": " == 0) failed: NodeIKernelLoginService::getQRCodePicture needs 0 arguments.assertion (cpp_impl) failed: NodeIKernelLoginService::connect"
+   }
+  ],
+  "getLoginList": [
+   {
+    "file_off": 9340782,
+    "va": 9340782,
+    "rva": 9340782,
+    "ctx": " msg:{} data:{}.lock_test l_type {} !!!.getLoginList----.QQ-NT logined!!!.RefreshLoginTicket.LoginService::changeLimit limitType={}."
+   },
+   {
+    "file_off": 10773964,
+    "va": 10773964,
+    "rva": 10773964,
+    "ctx": "_impl) failed: NodeIKernelLoginService::getLoginList : implementation of IKernelLoginService is not valid.registerInfo.bindInfo.appN"
+   },
+   {
+    "file_off": 11307303,
+    "va": 11307303,
+    "rva": 11307303,
+    "ctx": ".......................lock_test.100183.getLoginList.uin {} write_lock_try {}  fd {}!!!.uin {} is last login uin !!!.OnConfirmUnusua"
+   },
+   {
+    "file_off": 11745742,
+    "va": 11745742,
+    "rva": 11745742,
+    "ctx": " == 0) failed: NodeIKernelLoginService::getLoginList needs 0 arguments.assertion (cpp_impl) failed: NodeIKernelLoginService::isHasLo"
+   },
+   {
+    "file_off": 13024021,
+    "va": 13024021,
+    "rva": 13024021,
+    "ctx": "ction6__funcIZN2nt5login12LoginService12getLoginListERKNS_10shared_ptrINS2_7wrapper18ILoginListCallbackEEEE3$_8NS_9allocatorISB_EEFv"
+   },
+   {
+    "file_off": 13024196,
+    "va": 13024196,
+    "rva": 13024196,
+    "ctx": "SF_EEEEEEEEE.ZN2nt5login12LoginService12getLoginListERKNSt2Cr10shared_ptrINS_7wrapper18ILoginListCallbackEEEE3$_8.NSt2Cr10__function"
+   }
+  ],
+  "quickLoginWithUin": [
+   {
+    "file_off": 9115869,
+    "va": 9115869,
+    "rva": 9115869,
+    "ctx": "}  uid:{} size:{})!!!.DoOnAuthNewDevice.quickLoginWithUin----uin = {} .setLoginMiscData, key: {} value: {}.pid {} lock_test error path no"
+   },
+   {
+    "file_off": 9224180,
+    "va": 9224180,
+    "rva": 9224180,
+    "ctx": "..................invalid parameter.msf.quickLoginWithUin uin {} invaild!!!.SimpleAtoi  uin_str:{}error!.OnQRCodeLoginGetPicture.OnLoginN"
+   },
+   {
+    "file_off": 9896018,
+    "va": 9896018,
+    "rva": 9896018,
+    "ctx": "_impl) failed: NodeIKernelLoginService::quickLoginWithUin : implementation of IKernelLoginService is not valid.../../djinni_interface/des"
+   },
+   {
+    "file_off": 10216614,
+    "va": 10216614,
+    "rva": 10216614,
+    "ctx": "ild login head with cookie:{} .checkSms.quickLoginWithUin----result={}.Server Internal error.REPORT.M - SEARCH.LF character expected.Clos"
+   },
+   {
+    "file_off": 10325857,
+    "va": 10325857,
+    "rva": 10325857,
+    "ctx": "ientVer: {}, machineId: {}, platVer: {}.quickLoginWithUin.uin {} open error {} !!!.LoginService::getRegisterUin.build login head with  ac"
+   },
+   {
+    "file_off": 10435809,
+    "va": 10435809,
+    "rva": 10435809,
+    "ctx": "{}-{}-{}.OnPasswordLogin.RefreshTickets.quickLoginWithUin----has_quick_login_ is true..ConvertLoginSigRecordToLocalLoginInfo.getLoginMisc"
+   },
+   {
+    "file_off": 10989999,
+    "va": 10989999,
+    "rva": 10989999,
+    "ctx": " == 1) failed: NodeIKernelLoginService::quickLoginWithUin needs 1 arguments.a1.onUnusualDeviceVerifyState.assertion (argc == 0) failed: N"
+   },
+   {
+    "file_off": 13023233,
+    "va": 13023233,
+    "rva": 13023233,
+    "ctx": "ction6__funcIZN2nt5login12LoginService17quickLoginWithUinERKNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERKNS_10shared_ptrIN"
+   }
+  ],
+  "addKernelLoginListener": [
+   {
+    "file_off": 9998877,
+    "va": 9998877,
+    "rva": 9998877,
+    "ctx": " == 1) failed: NodeIKernelLoginService::addKernelLoginListener needs 1 arguments.assertion (cpp_impl) failed: NodeIKernelLoginService::initCon"
+   },
+   {
+    "file_off": 11528048,
+    "va": 11528048,
+    "rva": 11528048,
+    "ctx": "_impl) failed: NodeIKernelLoginService::addKernelLoginListener : implementation of IKernelLoginService is not valid.assertion (argc == 1) fail"
+   },
+   {
+    "file_off": 11634273,
+    "va": 11634273,
+    "rva": 11634273,
+    "ctx": "angeListener.cpp.msgId.feedData.dstPath.addKernelLoginListener.loadNoLoginUnitedConfig.newDeviceLoginSig.deviceCheckSucceedSig.msgNeedVerifyNe"
+   }
+  ],
+  "onQRCodeGetPicture": [
+   {
+    "file_off": 11853940,
+    "va": 11853940,
+    "rva": 11853940,
+    "ctx": "s not valid.iframeSig.tipsContent.group.onQRCodeGetPicture.NodeIOPSafePwdEdit.getFlashTransferService.assertion (cpp_impl) failed: NodeIQQ"
+   }
+  ],
+  "pngBase64QrcodeData": [
+   {
+    "file_off": 10218399,
+    "va": 10218399,
+    "rva": 10218399,
+    "ctx": "th.handleUrl.msgUnusualDevice.expireSig.pngBase64QrcodeData.succeedSig.addOPSafePwdEditListener.Softkeyborad.assertion (cpp_impl) failed: N"
+   }
+  ],
+  "qrcodeUrl": [
+   {
+    "file_off": 11746006,
+    "va": 11746006,
+    "rva": 11746006,
+    "ctx": "ds 1 arguments.imageUrl.loginResultInfo.qrcodeUrl.pollTimeInterval.assertion (cpp_impl) failed: NodeIQQNTWrapperSession::getQQEma"
+   }
+  ],
+  "QRCodeLoginSucceed": [
+   {
+    "file_off": 10549682,
+    "va": 10549682,
+    "rva": 10549682,
+    "ctx": " not valid.longCookie.uinInfo.maskUin.onQRCodeLoginSucceed.../../djinni_interface/desktop_qq/interface/nodejs/NodeIOPSafePwdEditCpp.cpp.as"
+   }
+  ],
+  "onQRCodeSessionUserScaned": [
+   {
+    "file_off": 9676499,
+    "va": 9676499,
+    "rva": 9676499,
+    "ctx": "ace/nodejs/NodeIKernelLoginListener.cpp.onQRCodeSessionUserScaned.assertion (argc == 0) failed: NodeIQQNTWrapperSession::getFlashTransferService "
+   }
+  ],
+  "onQRCodeSessionFailed": [
+   {
+    "file_off": 11528317,
+    "va": 11528317,
+    "rva": 11528317,
+    "ctx": "ode.keyUin.tipsTitle.LocalLoginInfoList.onQRCodeSessionFailed.onQQLoginNumLimited.onLoginRecordUpdate.ClearAllInput.getVasSystemUpdateService"
+   }
+  ],
+  "setAutoLogin": [
+   {
+    "file_off": 9007925,
+    "va": 9007925,
+    "rva": 9007925,
+    "ctx": "_impl) failed: NodeIKernelLoginService::setAutoLogin : implementation of IKernelLoginService is not valid.assertion (argc == 1) fail"
+   },
+   {
+    "file_off": 9674991,
+    "va": 9674991,
+    "rva": 9674991,
+    "ctx": "eId:{}-{}.CheckGrayUin appid invaild!!!.setAutoLogin.sms login not supported in external version.../../wrapper/external/login/servic"
+   },
+   {
+    "file_off": 10211790,
+    "va": 10211790,
+    "rva": 10211790,
+    "ctx": "ivacySetting.setSettingForStr [{}]:[{}].setAutoLoginSwitch.unSetFromAiAuthBlackList.requesTianShuNumeralRed.request fail retCode is "
+   },
+   {
+    "file_off": 10449523,
+    "va": 10449523,
+    "rva": 10449523,
+    "ctx": "= 1) failed: NodeIKernelSettingService::setAutoLoginSwitch needs 1 arguments.assertion (cpp_impl) failed: NodeIKernelSettingService:"
+   },
+   {
+    "file_off": 11525968,
+    "va": 11525968,
+    "rva": 11525968,
+    "ctx": "heckUinIsLoggedIn uin {} has logged in..setAutoLogin shouldAutoLogin:{}.onLoginSuccess with invalid uin._async_call_callback.PROPFIN"
+   },
+   {
+    "file_off": 11745950,
+    "va": 11745950,
+    "rva": 11745950,
+    "ctx": " == 1) failed: NodeIKernelLoginService::setAutoLogin needs 1 arguments.imageUrl.loginResultInfo.qrcodeUrl.pollTimeInterval.assertion"
+   },
+   {
+    "file_off": 11758053,
+    "va": 11758053,
+    "rva": 11758053,
+    "ctx": "mpl) failed: NodeIKernelSettingService::setAutoLoginSwitch : implementation of IKernelSettingService is not valid.addMeByMobile.asse"
+   },
+   {
+    "file_off": 12515994,
+    "va": 12515994,
+    "rva": 12515994,
+    "ctx": "ncIZN2nt7wrapper20KernelSettingService18setAutoLoginSwitchEbRKNS_10shared_ptrINS3_16IOperateCallbackEEEE4$_19NS_9allocatorISA_EEFviR"
+   }
+  ],
+  "getMachineGuid": [
+   {
+    "file_off": 8795104,
+    "va": 8795104,
+    "rva": 8795104,
+    "ctx": "vice::deleteLoginInfo needs 1 arguments.getMachineGuid.isHasLoginInfo.msgButton.onLoginConnected.age.onLoginFailed.onUnusualDeviceVeri"
+   },
+   {
+    "file_off": 8902692,
+    "va": 8902692,
+    "rva": 8902692,
+    "ctx": "_impl) failed: NodeIKernelLoginService::getMachineGuid : implementation of IKernelLoginService is not valid.assertion (cpp_impl) faile"
+   },
+   {
+    "file_off": 9456837,
+    "va": 9456837,
+    "rva": 9456837,
+    "ctx": " == 0) failed: NodeIKernelLoginService::getMachineGuid needs 0 arguments.assertion (argc == 1) failed: NodeIKernelLoginService::submit"
+   }
+  ],
+  "startPolling": [
+   {
+    "file_off": 8581756,
+    "va": 8581756,
+    "rva": 8581756,
+    "ctx": "imeoutOnSlowNet.account.onParseMarkdown.startPolling.assertion (argc == 0) failed: NodeIKernelLoginService::startPolling needs 0 arg"
+   },
+   {
+    "file_off": 8581824,
+    "va": 8581824,
+    "rva": 8581824,
+    "ctx": " == 0) failed: NodeIKernelLoginService::startPolling needs 0 arguments.assertion (argc == 0) failed: NodeIKernelLoginService::abortP"
+   },
+   {
+    "file_off": 9426380,
+    "va": 9426380,
+    "rva": 9426380,
+    "ctx": " == 0) failed: NodeIKernelGuildService::startPollingForDiscoverState needs 0 arguments.assertion (argc == 2) failed: NodeIKernelGuil"
+   },
+   {
+    "file_off": 10405781,
+    "va": 10405781,
+    "rva": 10405781,
+    "ctx": "UserInfo\".getPersonalSignatureTemplate.\"startPollingForDiscoverState\".batchGetItemDetail.fetchRetentionGuildList.getGuildUserClientI"
+   },
+   {
+    "file_off": 10412920,
+    "va": 10412920,
+    "rva": 10412920,
+    "ctx": "_impl) failed: NodeIKernelGuildService::startPollingForDiscoverState : implementation of IKernelGuildService is not valid.assertion "
+   },
+   {
+    "file_off": 10658554,
+    "va": 10658554,
+    "rva": 10658554,
+    "ctx": "_impl) failed: NodeIKernelLoginService::startPolling : implementation of IKernelLoginService is not valid.machineId.registerWithoutP"
+   },
+   {
+    "file_off": 11932761,
+    "va": 11932761,
+    "rva": 11932761,
+    "ctx": "ze() = {}.getPollingCtx session is null.startPollingForDiscoverState.getRecommendTagList.\"fetchSubscribeUserGuide\".fetchGuildBottomT"
+   }
+  ],
+  "abortPolling": [
+   {
+    "file_off": 8581910,
+    "va": 8581910,
+    "rva": 8581910,
+    "ctx": " == 0) failed: NodeIKernelLoginService::abortPolling needs 0 arguments.assertion (cpp_impl) failed: NodeIKernelLoginService::loginUn"
+   },
+   {
+    "file_off": 11420174,
+    "va": 11420174,
+    "rva": 11420174,
+    "ctx": "_impl) failed: NodeIKernelLoginService::abortPolling : implementation of IKernelLoginService is not valid.assertion (argc == 0) fail"
+   },
+   {
+    "file_off": 11528231,
+    "va": 11528231,
+    "rva": 11528231,
+    "ctx": "edConfigPushGroupList needs 1 arguments.abortPolling.unusualDeviceCheckSucceedSig.smsCode.keyUin.tipsTitle.LocalLoginInfoList.onQRCo"
+   }
+  ]
+ },
+ "refs_by_key": {
+  "setAutoLogin": [
+   {
+    "insn_va": 48043677,
+    "insn_rva": 48043677,
+    "target_va": 10211790,
+    "target_rva": 10211790,
+    "key": "setAutoLogin",
+    "func_va": 48043498,
+    "func_rva": 48043498
+   },
+   {
+    "insn_va": 54318666,
+    "insn_rva": 54318666,
+    "target_va": 9674991,
+    "target_rva": 9674991,
+    "key": "setAutoLogin",
+    "func_va": 54318355,
+    "func_rva": 54318355
+   },
+   {
+    "insn_va": 54318673,
+    "insn_rva": 54318673,
+    "target_va": 11525968,
+    "target_rva": 11525968,
+    "key": "setAutoLogin",
+    "func_va": 54318355,
+    "func_rva": 54318355
+   },
+   {
+    "insn_va": 55513036,
+    "insn_rva": 55513036,
+    "target_va": 9674991,
+    "target_rva": 9674991,
+    "key": "setAutoLogin",
+    "func_va": 55512961,
+    "func_rva": 55512961
+   },
+   {
+    "insn_va": 55513131,
+    "insn_rva": 55513131,
+    "target_va": 9674991,
+    "target_rva": 9674991,
+    "key": "setAutoLogin",
+    "func_va": 55512961,
+    "func_rva": 55512961
+   },
+   {
+    "insn_va": 60846048,
+    "insn_rva": 60846048,
+    "target_va": 10211790,
+    "target_rva": 10211790,
+    "key": "setAutoLogin",
+    "func_va": 60845973,
+    "func_rva": 60845973
+   },
+   {
+    "insn_va": 60846156,
+    "insn_rva": 60846156,
+    "target_va": 10211790,
+    "target_rva": 10211790,
+    "key": "setAutoLogin",
+    "func_va": 60845973,
+    "func_rva": 60845973
+   },
+   {
+    "insn_va": 60846345,
+    "insn_rva": 60846345,
+    "target_va": 10211790,
+    "target_rva": 10211790,
+    "key": "setAutoLogin",
+    "func_va": 60845973,
+    "func_rva": 60845973
+   },
+   {
+    "insn_va": 48043678,
+    "insn_rva": 48043678,
+    "target_va": 10211790,
+    "target_rva": 10211790,
+    "key": "setAutoLogin",
+    "func_va": 48043498,
+    "func_rva": 48043498
+   },
+   {
+    "insn_va": 54318667,
+    "insn_rva": 54318667,
+    "target_va": 9674991,
+    "target_rva": 9674991,
+    "key": "setAutoLogin",
+    "func_va": 54318355,
+    "func_rva": 54318355
+   },
+   {
+    "insn_va": 54318674,
+    "insn_rva": 54318674,
+    "target_va": 11525968,
+    "target_rva": 11525968,
+    "key": "setAutoLogin",
+    "func_va": 54318355,
+    "func_rva": 54318355
+   },
+   {
+    "insn_va": 55513037,
+    "insn_rva": 55513037,
+    "target_va": 9674991,
+    "target_rva": 9674991,
+    "key": "setAutoLogin",
+    "func_va": 55512961,
+    "func_rva": 55512961
+   },
+   {
+    "insn_va": 55513132,
+    "insn_rva": 55513132,
+    "target_va": 9674991,
+    "target_rva": 9674991,
+    "key": "setAutoLogin",
+    "func_va": 55512961,
+    "func_rva": 55512961
+   },
+   {
+    "insn_va": 60846049,
+    "insn_rva": 60846049,
+    "target_va": 10211790,
+    "target_rva": 10211790,
+    "key": "setAutoLogin",
+    "func_va": 60845973,
+    "func_rva": 60845973
+   },
+   {
+    "insn_va": 60846157,
+    "insn_rva": 60846157,
+    "target_va": 10211790,
+    "target_rva": 10211790,
+    "key": "setAutoLogin",
+    "func_va": 60845973,
+    "func_rva": 60845973
+   },
+   {
+    "insn_va": 60846346,
+    "insn_rva": 60846346,
+    "target_va": 10211790,
+    "target_rva": 10211790,
+    "key": "setAutoLogin",
+    "func_va": 60845973,
+    "func_rva": 60845973
+   }
+  ],
+  "quickLoginWithUin": [
+   {
+    "insn_va": 54287950,
+    "insn_rva": 54287950,
+    "target_va": 10325857,
+    "target_rva": 10325857,
+    "key": "quickLoginWithUin",
+    "func_va": 54287914,
+    "func_rva": 54287914
+   },
+   {
+    "insn_va": 54287957,
+    "insn_rva": 54287957,
+    "target_va": 9115869,
+    "target_rva": 9115869,
+    "key": "quickLoginWithUin",
+    "func_va": 54287914,
+    "func_rva": 54287914
+   },
+   {
+    "insn_va": 54288089,
+    "insn_rva": 54288089,
+    "target_va": 10325857,
+    "target_rva": 10325857,
+    "key": "quickLoginWithUin",
+    "func_va": 54287914,
+    "func_rva": 54287914
+   },
+   {
+    "insn_va": 54288216,
+    "insn_rva": 54288216,
+    "target_va": 10325857,
+    "target_rva": 10325857,
+    "key": "quickLoginWithUin",
+    "func_va": 54287914,
+    "func_rva": 54287914
+   },
+   {
+    "insn_va": 54288223,
+    "insn_rva": 54288223,
+    "target_va": 9224180,
+    "target_rva": 9224180,
+    "key": "quickLoginWithUin",
+    "func_va": 54287914,
+    "func_rva": 54287914
+   },
+   {
+    "insn_va": 54289907,
+    "insn_rva": 54289907,
+    "target_va": 10435809,
+    "target_rva": 10435809,
+    "key": "quickLoginWithUin",
+    "func_va": 54289466,
+    "func_rva": 54289466
+   },
+   {
+    "insn_va": 54349961,
+    "insn_rva": 54349961,
+    "target_va": 10216614,
+    "target_rva": 10216614,
+    "key": "quickLoginWithUin",
+    "func_va": 54349895,
+    "func_rva": 54349895
+   },
+   {
+    "insn_va": 55509904,
+    "insn_rva": 55509904,
+    "target_va": 10325857,
+    "target_rva": 10325857,
+    "key": "quickLoginWithUin",
+    "func_va": 55509829,
+    "func_rva": 55509829
+   },
+   {
+    "insn_va": 55510007,
+    "insn_rva": 55510007,
+    "target_va": 10325857,
+    "target_rva": 10325857,
+    "key": "quickLoginWithUin",
+    "func_va": 55509829,
+    "func_rva": 55509829
+   },
+   {
+    "insn_va": 55510196,
+    "insn_rva": 55510196,
+    "target_va": 10325857,
+    "target_rva": 10325857,
+    "key": "quickLoginWithUin",
+    "func_va": 55509829,
+    "func_rva": 55509829
+   },
+   {
+    "insn_va": 54287951,
+    "insn_rva": 54287951,
+    "target_va": 10325857,
+    "target_rva": 10325857,
+    "key": "quickLoginWithUin",
+    "func_va": 54287914,
+    "func_rva": 54287914
+   },
+   {
+    "insn_va": 54287958,
+    "insn_rva": 54287958,
+    "target_va": 9115869,
+    "target_rva": 9115869,
+    "key": "quickLoginWithUin",
+    "func_va": 54287914,
+    "func_rva": 54287914
+   },
+   {
+    "insn_va": 54288090,
+    "insn_rva": 54288090,
+    "target_va": 10325857,
+    "target_rva": 10325857,
+    "key": "quickLoginWithUin",
+    "func_va": 54287914,
+    "func_rva": 54287914
+   },
+   {
+    "insn_va": 54288217,
+    "insn_rva": 54288217,
+    "target_va": 10325857,
+    "target_rva": 10325857,
+    "key": "quickLoginWithUin",
+    "func_va": 54287914,
+    "func_rva": 54287914
+   },
+   {
+    "insn_va": 54288224,
+    "insn_rva": 54288224,
+    "target_va": 9224180,
+    "target_rva": 9224180,
+    "key": "quickLoginWithUin",
+    "func_va": 54287914,
+    "func_rva": 54287914
+   },
+   {
+    "insn_va": 54289908,
+    "insn_rva": 54289908,
+    "target_va": 10435809,
+    "target_rva": 10435809,
+    "key": "quickLoginWithUin",
+    "func_va": 54289466,
+    "func_rva": 54289466
+   },
+   {
+    "insn_va": 54349962,
+    "insn_rva": 54349962,
+    "target_va": 10216614,
+    "target_rva": 10216614,
+    "key": "quickLoginWithUin",
+    "func_va": 54349895,
+    "func_rva": 54349895
+   },
+   {
+    "insn_va": 55509905,
+    "insn_rva": 55509905,
+    "target_va": 10325857,
+    "target_rva": 10325857,
+    "key": "quickLoginWithUin",
+    "func_va": 55509829,
+    "func_rva": 55509829
+   },
+   {
+    "insn_va": 55510008,
+    "insn_rva": 55510008,
+    "target_va": 10325857,
+    "target_rva": 10325857,
+    "key": "quickLoginWithUin",
+    "func_va": 55509829,
+    "func_rva": 55509829
+   },
+   {
+    "insn_va": 55510197,
+    "insn_rva": 55510197,
+    "target_va": 10325857,
+    "target_rva": 10325857,
+    "key": "quickLoginWithUin",
+    "func_va": 55509829,
+    "func_rva": 55509829
+   }
+  ],
+  "getLoginList": [
+   {
+    "insn_va": 54290482,
+    "insn_rva": 54290482,
+    "target_va": 9340782,
+    "target_rva": 9340782,
+    "key": "getLoginList",
+    "func_va": 54290458,
+    "func_rva": 54290458
+   },
+   {
+    "insn_va": 54290517,
+    "insn_rva": 54290517,
+    "target_va": 11307303,
+    "target_rva": 11307303,
+    "key": "getLoginList",
+    "func_va": 54290458,
+    "func_rva": 54290458
+   },
+   {
+    "insn_va": 55508631,
+    "insn_rva": 55508631,
+    "target_va": 11307303,
+    "target_rva": 11307303,
+    "key": "getLoginList",
+    "func_va": 55508565,
+    "func_rva": 55508565
+   },
+   {
+    "insn_va": 55508737,
+    "insn_rva": 55508737,
+    "target_va": 11307303,
+    "target_rva": 11307303,
+    "key": "getLoginList",
+    "func_va": 55508565,
+    "func_rva": 55508565
+   },
+   {
+    "insn_va": 55508923,
+    "insn_rva": 55508923,
+    "target_va": 11307303,
+    "target_rva": 11307303,
+    "key": "getLoginList",
+    "func_va": 55508565,
+    "func_rva": 55508565
+   },
+   {
+    "insn_va": 54290483,
+    "insn_rva": 54290483,
+    "target_va": 9340782,
+    "target_rva": 9340782,
+    "key": "getLoginList",
+    "func_va": 54290458,
+    "func_rva": 54290458
+   },
+   {
+    "insn_va": 54290518,
+    "insn_rva": 54290518,
+    "target_va": 11307303,
+    "target_rva": 11307303,
+    "key": "getLoginList",
+    "func_va": 54290458,
+    "func_rva": 54290458
+   },
+   {
+    "insn_va": 55508632,
+    "insn_rva": 55508632,
+    "target_va": 11307303,
+    "target_rva": 11307303,
+    "key": "getLoginList",
+    "func_va": 55508565,
+    "func_rva": 55508565
+   },
+   {
+    "insn_va": 55508738,
+    "insn_rva": 55508738,
+    "target_va": 11307303,
+    "target_rva": 11307303,
+    "key": "getLoginList",
+    "func_va": 55508565,
+    "func_rva": 55508565
+   },
+   {
+    "insn_va": 55508924,
+    "insn_rva": 55508924,
+    "target_va": 11307303,
+    "target_rva": 11307303,
+    "key": "getLoginList",
+    "func_va": 55508565,
+    "func_rva": 55508565
+   }
+  ],
+  "addKernelLoginListener": [
+   {
+    "insn_va": 55502640,
+    "insn_rva": 55502640,
+    "target_va": 11634273,
+    "target_rva": 11634273,
+    "key": "addKernelLoginListener",
+    "func_va": 55502561,
+    "func_rva": 55502561
+   },
+   {
+    "insn_va": 55502743,
+    "insn_rva": 55502743,
+    "target_va": 11634273,
+    "target_rva": 11634273,
+    "key": "addKernelLoginListener",
+    "func_va": 55502561,
+    "func_rva": 55502561
+   },
+   {
+    "insn_va": 55502641,
+    "insn_rva": 55502641,
+    "target_va": 11634273,
+    "target_rva": 11634273,
+    "key": "addKernelLoginListener",
+    "func_va": 55502561,
+    "func_rva": 55502561
+   },
+   {
+    "insn_va": 55502744,
+    "insn_rva": 55502744,
+    "target_va": 11634273,
+    "target_rva": 11634273,
+    "key": "addKernelLoginListener",
+    "func_va": 55502561,
+    "func_rva": 55502561
+   }
+  ],
+  "getQRCodePicture": [
+   {
+    "insn_va": 55504581,
+    "insn_rva": 55504581,
+    "target_va": 9676259,
+    "target_rva": 9676259,
+    "key": "getQRCodePicture",
+    "func_va": 55504515,
+    "func_rva": 55504515
+   },
+   {
+    "insn_va": 55504675,
+    "insn_rva": 55504675,
+    "target_va": 9676259,
+    "target_rva": 9676259,
+    "key": "getQRCodePicture",
+    "func_va": 55504515,
+    "func_rva": 55504515
+   },
+   {
+    "insn_va": 55504582,
+    "insn_rva": 55504582,
+    "target_va": 9676259,
+    "target_rva": 9676259,
+    "key": "getQRCodePicture",
+    "func_va": 55504515,
+    "func_rva": 55504515
+   },
+   {
+    "insn_va": 55504676,
+    "insn_rva": 55504676,
+    "target_va": 9676259,
+    "target_rva": 9676259,
+    "key": "getQRCodePicture",
+    "func_va": 55504515,
+    "func_rva": 55504515
+   }
+  ],
+  "startPolling": [
+   {
+    "insn_va": 55504853,
+    "insn_rva": 55504853,
+    "target_va": 8581756,
+    "target_rva": 8581756,
+    "key": "startPolling",
+    "func_va": 55504787,
+    "func_rva": 55504787
+   },
+   {
+    "insn_va": 55504947,
+    "insn_rva": 55504947,
+    "target_va": 8581756,
+    "target_rva": 8581756,
+    "key": "startPolling",
+    "func_va": 55504787,
+    "func_rva": 55504787
+   },
+   {
+    "insn_va": 129365828,
+    "insn_rva": 129365828,
+    "target_va": 11932761,
+    "target_rva": 11932761,
+    "key": "startPolling",
+    "func_va": 129365541,
+    "func_rva": 129365541
+   },
+   {
+    "insn_va": 129365921,
+    "insn_rva": 129365921,
+    "target_va": 11932761,
+    "target_rva": 11932761,
+    "key": "startPolling",
+    "func_va": 129365541,
+    "func_rva": 129365541
+   },
+   {
+    "insn_va": 133718592,
+    "insn_rva": 133718592,
+    "target_va": 11932761,
+    "target_rva": 11932761,
+    "key": "startPolling",
+    "func_va": 133718529,
+    "func_rva": 133718529
+   },
+   {
+    "insn_va": 133718676,
+    "insn_rva": 133718676,
+    "target_va": 11932761,
+    "target_rva": 11932761,
+    "key": "startPolling",
+    "func_va": 133718529,
+    "func_rva": 133718529
+   },
+   {
+    "insn_va": 55504854,
+    "insn_rva": 55504854,
+    "target_va": 8581756,
+    "target_rva": 8581756,
+    "key": "startPolling",
+    "func_va": 55504787,
+    "func_rva": 55504787
+   },
+   {
+    "insn_va": 55504948,
+    "insn_rva": 55504948,
+    "target_va": 8581756,
+    "target_rva": 8581756,
+    "key": "startPolling",
+    "func_va": 55504787,
+    "func_rva": 55504787
+   },
+   {
+    "insn_va": 129365829,
+    "insn_rva": 129365829,
+    "target_va": 11932761,
+    "target_rva": 11932761,
+    "key": "startPolling",
+    "func_va": 129365541,
+    "func_rva": 129365541
+   },
+   {
+    "insn_va": 129365922,
+    "insn_rva": 129365922,
+    "target_va": 11932761,
+    "target_rva": 11932761,
+    "key": "startPolling",
+    "func_va": 129365541,
+    "func_rva": 129365541
+   },
+   {
+    "insn_va": 133718593,
+    "insn_rva": 133718593,
+    "target_va": 11932761,
+    "target_rva": 11932761,
+    "key": "startPolling",
+    "func_va": 133718529,
+    "func_rva": 133718529
+   },
+   {
+    "insn_va": 133718677,
+    "insn_rva": 133718677,
+    "target_va": 11932761,
+    "target_rva": 11932761,
+    "key": "startPolling",
+    "func_va": 133718529,
+    "func_rva": 133718529
+   }
+  ],
+  "abortPolling": [
+   {
+    "insn_va": 55505125,
+    "insn_rva": 55505125,
+    "target_va": 11528231,
+    "target_rva": 11528231,
+    "key": "abortPolling",
+    "func_va": 55505059,
+    "func_rva": 55505059
+   },
+   {
+    "insn_va": 55505219,
+    "insn_rva": 55505219,
+    "target_va": 11528231,
+    "target_rva": 11528231,
+    "key": "abortPolling",
+    "func_va": 55505059,
+    "func_rva": 55505059
+   },
+   {
+    "insn_va": 55505126,
+    "insn_rva": 55505126,
+    "target_va": 11528231,
+    "target_rva": 11528231,
+    "key": "abortPolling",
+    "func_va": 55505059,
+    "func_rva": 55505059
+   },
+   {
+    "insn_va": 55505220,
+    "insn_rva": 55505220,
+    "target_va": 11528231,
+    "target_rva": 11528231,
+    "key": "abortPolling",
+    "func_va": 55505059,
+    "func_rva": 55505059
+   }
+  ],
+  "getMachineGuid": [
+   {
+    "insn_va": 55510613,
+    "insn_rva": 55510613,
+    "target_va": 8795104,
+    "target_rva": 8795104,
+    "key": "getMachineGuid",
+    "func_va": 55510547,
+    "func_rva": 55510547
+   },
+   {
+    "insn_va": 55510710,
+    "insn_rva": 55510710,
+    "target_va": 8795104,
+    "target_rva": 8795104,
+    "key": "getMachineGuid",
+    "func_va": 55510547,
+    "func_rva": 55510547
+   },
+   {
+    "insn_va": 55510614,
+    "insn_rva": 55510614,
+    "target_va": 8795104,
+    "target_rva": 8795104,
+    "key": "getMachineGuid",
+    "func_va": 55510547,
+    "func_rva": 55510547
+   },
+   {
+    "insn_va": 55510711,
+    "insn_rva": 55510711,
+    "target_va": 8795104,
+    "target_rva": 8795104,
+    "key": "getMachineGuid",
+    "func_va": 55510547,
+    "func_rva": 55510547
+   }
+  ],
+  "NodeIKernelLoginListener": [
+   {
+    "insn_va": 55614690,
+    "insn_rva": 55614690,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55614549,
+    "func_rva": 55614549
+   },
+   {
+    "insn_va": 55614761,
+    "insn_rva": 55614761,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55614549,
+    "func_rva": 55614549
+   },
+   {
+    "insn_va": 55614831,
+    "insn_rva": 55614831,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55614549,
+    "func_rva": 55614549
+   },
+   {
+    "insn_va": 55615602,
+    "insn_rva": 55615602,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55615461,
+    "func_rva": 55615461
+   },
+   {
+    "insn_va": 55615673,
+    "insn_rva": 55615673,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55615461,
+    "func_rva": 55615461
+   },
+   {
+    "insn_va": 55615743,
+    "insn_rva": 55615743,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55615461,
+    "func_rva": 55615461
+   },
+   {
+    "insn_va": 55616514,
+    "insn_rva": 55616514,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55616373,
+    "func_rva": 55616373
+   },
+   {
+    "insn_va": 55616585,
+    "insn_rva": 55616585,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55616373,
+    "func_rva": 55616373
+   },
+   {
+    "insn_va": 55616655,
+    "insn_rva": 55616655,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55616373,
+    "func_rva": 55616373
+   },
+   {
+    "insn_va": 55617672,
+    "insn_rva": 55617672,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55617511,
+    "func_rva": 55617511
+   },
+   {
+    "insn_va": 55617743,
+    "insn_rva": 55617743,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55617511,
+    "func_rva": 55617511
+   },
+   {
+    "insn_va": 55617818,
+    "insn_rva": 55617818,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55617511,
+    "func_rva": 55617511
+   },
+   {
+    "insn_va": 55618718,
+    "insn_rva": 55618718,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55618503,
+    "func_rva": 55618503
+   },
+   {
+    "insn_va": 55618789,
+    "insn_rva": 55618789,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55618503,
+    "func_rva": 55618503
+   },
+   {
+    "insn_va": 55618864,
+    "insn_rva": 55618864,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55618503,
+    "func_rva": 55618503
+   },
+   {
+    "insn_va": 55619864,
+    "insn_rva": 55619864,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55619623,
+    "func_rva": 55619623
+   },
+   {
+    "insn_va": 55619935,
+    "insn_rva": 55619935,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55619623,
+    "func_rva": 55619623
+   },
+   {
+    "insn_va": 55620010,
+    "insn_rva": 55620010,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55619623,
+    "func_rva": 55619623
+   },
+   {
+    "insn_va": 55620855,
+    "insn_rva": 55620855,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55620679,
+    "func_rva": 55620679
+   },
+   {
+    "insn_va": 55620925,
+    "insn_rva": 55620925,
+    "target_va": 9676470,
+    "target_rva": 9676470,
+    "key": "NodeIKernelLoginListener",
+    "func_va": 55620679,
+    "func_rva": 55620679
+   }
+  ],
+  "onQRCodeGetPicture": [
+   {
+    "insn_va": 55617723,
+    "insn_rva": 55617723,
+    "target_va": 11853940,
+    "target_rva": 11853940,
+    "key": "onQRCodeGetPicture",
+    "func_va": 55617511,
+    "func_rva": 55617511
+   },
+   {
+    "insn_va": 55617724,
+    "insn_rva": 55617724,
+    "target_va": 11853940,
+    "target_rva": 11853940,
+    "key": "onQRCodeGetPicture",
+    "func_va": 55617511,
+    "func_rva": 55617511
+   }
+  ],
+  "onQRCodeSessionUserScaned": [
+   {
+    "insn_va": 55619915,
+    "insn_rva": 55619915,
+    "target_va": 9676499,
+    "target_rva": 9676499,
+    "key": "onQRCodeSessionUserScaned",
+    "func_va": 55619623,
+    "func_rva": 55619623
+   },
+   {
+    "insn_va": 55619916,
+    "insn_rva": 55619916,
+    "target_va": 9676499,
+    "target_rva": 9676499,
+    "key": "onQRCodeSessionUserScaned",
+    "func_va": 55619623,
+    "func_rva": 55619623
+   }
+  ],
+  "onQRCodeSessionFailed": [
+   {
+    "insn_va": 55623211,
+    "insn_rva": 55623211,
+    "target_va": 11528317,
+    "target_rva": 11528317,
+    "key": "onQRCodeSessionFailed",
+    "func_va": 55622887,
+    "func_rva": 55622887
+   },
+   {
+    "insn_va": 55623212,
+    "insn_rva": 55623212,
+    "target_va": 11528317,
+    "target_rva": 11528317,
+    "key": "onQRCodeSessionFailed",
+    "func_va": 55622887,
+    "func_rva": 55622887
+   }
+  ],
+  "pngBase64QrcodeData": [
+   {
+    "insn_va": 55639942,
+    "insn_rva": 55639942,
+    "target_va": 10218399,
+    "target_rva": 10218399,
+    "key": "pngBase64QrcodeData",
+    "func_va": 55639859,
+    "func_rva": 55639859
+   },
+   {
+    "insn_va": 55639943,
+    "insn_rva": 55639943,
+    "target_va": 10218399,
+    "target_rva": 10218399,
+    "key": "pngBase64QrcodeData",
+    "func_va": 55639859,
+    "func_rva": 55639859
+   }
+  ],
+  "qrcodeUrl": [
+   {
+    "insn_va": 55640015,
+    "insn_rva": 55640015,
+    "target_va": 11746006,
+    "target_rva": 11746006,
+    "key": "qrcodeUrl",
+    "func_va": 55639859,
+    "func_rva": 55639859
+   },
+   {
+    "insn_va": 55640016,
+    "insn_rva": 55640016,
+    "target_va": 11746006,
+    "target_rva": 11746006,
+    "key": "qrcodeUrl",
+    "func_va": 55639859,
+    "func_rva": 55639859
+   }
+  ]
+ },
+ "callback_candidates": [
+  {
+   "func_rva": 55639859,
+   "keys": [
+    "pngBase64QrcodeData",
+    "qrcodeUrl"
+   ]
+  }
+ ],
+ "note": "RVA = va - elf_min_vaddr（模块内相对偏移）；func_rva 为回扫序言得到的候选函数起点，需动态验证",
+ "verified": false,
+ "m0_status": {
+  "date": "2026-11-13",
+  "static_locator": "tools/locate_login_funcs.py（ELF 解析 + 字符串 xref + 重定位/GOT 追踪）",
+  "string_hits": 233,
+  "lea_refs": 222,
+  "callback_candidates": [
+   {
+    "func_rva": 55639859,
+    "keys": [
+     "pngBase64QrcodeData",
+     "qrcodeUrl"
+    ]
+   }
+  ],
+  "key_functions": {
+   "qrcode_callback_converter_candidate": "0x350ff33",
+   "listener_dispatch_candidates": [
+    "0x350a7e7",
+    "0x350b027",
+    "0x350bce7",
+    "0x3509c55"
+   ],
+   "getQRCodePicture_candidate": "0x34eee83",
+   "addKernelLoginListener_candidate": "0x34ee6e1",
+   "getLoginList_candidate_service": [
+    "0x33c681a",
+    "0x34efe55"
+   ],
+   "quickLoginWithUin_candidates": [
+    "0x33c5e2a",
+    "0x33c643a",
+    "0x33d5047",
+    "0x34f0345"
+   ],
+   "getMachineGuid_candidate": "0x34f0613",
+   "setAutoLogin_candidates": [
+    "0x2dd15ea",
+    "0x33cd513",
+    "0x34f0f81",
+    "0x3a06f95"
+   ]
+  },
+  "dynamic_probe": {
+   "harness": "Frida 17.26.2 + frida-server（root）；按 /proc/<pid>/maps 是否映射 wrapper.node 选目标进程",
+   "attached_pid": 33372,
+   "module_base": "0x7f3c9f000000（示例，ASLR 每次不同）",
+   "napi_hooks": [
+    "napi_create_string_utf8",
+    "napi_create_string_latin1",
+    "napi_set_named_property"
+   ],
+   "rva_hooked": [
+    "0x350a7e7",
+    "0x350b027",
+    "0x350bce7",
+    "0x3509c55",
+    "0x350ff33",
+    "0x34eee83",
+    "0x34ee6e1",
+    "0x34efe55",
+    "0x34f0345"
+   ],
+   "confirmed_called": [
+    "0x34ee6e1（登录服务初始化阶段命中，疑似 addKernelLoginListener 路径）"
+   ],
+   "qrcode_capture": "pending：需补 napi UTF-16/buffer 钩子、主动触发 getQRCodePicture 刷新，或直接读取 listener 回调对象",
+   "note": "RVA 以 wrapper.node 模块基址为 0 计算；运行时 base+0x…；ASLR 每次不同"
+  },
+  "dynamic_probe_v8": {
+   "date": "2026-11-13",
+   "mode": "Frida spawn（进程启动前注入）+ dlopen 等待 wrapper.node 加载后再安装钩子",
+   "works": [
+    "spawn QQ 成功（root 凭据 + HOME/DISPLAY/XDG/DBUS 环境变量）",
+    "dlopen/dlmopen 钩子安装成功；wrapper.node 加载后自动安装全部钩子（module/hook/rva-hooked 均出现）",
+    "N-API 辅助函数解析成功（napi_get_value_string_utf8 / napi_is_buffer / napi_get_buffer_info）",
+    "服务对象指针已捕获：getLoginList 命中时 this=0x…（示例 0x27401d810a0）",
+    "启动后同步内存扫描可执行（post-load 扫描 2 个范围/122.9MB，无命中）"
+   ],
+   "gaps": [
+    "60s 窗口内 getQRCodePicture 未触发（root spawn 的登录 UI 可能未走到出码），因此二维码数据未捕获",
+    "下一轮：改用 user 凭据 frida-server（127.0.0.1:27043）spawn（复刻手动 user 启动行为），延长到 180s，并在出码窗口出现后做内存扫描；或捕获服务对象后由外部触发 getQRCodePicture",
+    "备选：attach 模式 + 截图确认二维码出现后再扫内存"
+   ],
+   "next_actions": [
+    "user-frida-server spawn 实验",
+    "getQRCodePicture 主动触发（注意：在 Frida JS 线程内同步调用会阻塞，需在安全时机/子线程或改用 hook 触发）",
+    "如仍失败：改用 listener 回调对象字段解析（C++ 结构内存布局）"
+   ]
+  }
+ },
+ "m1_status": {
+  "date": "2026-11-13",
+  "fallback_screenshot_qr": {
+   "status": "verified_end_to_end",
+   "evidence": {
+    "qr_png_from_http": "/tmp/qr_from_server.png（769x381 PNG，75,467B，sha256 e25683bb…）",
+    "webui": "GET / 返回 miohh 登录页（每 2s 刷新 /qr.png）；GET /qr.png 返回登录窗口截图",
+    "note": "GET /status 本次返回空，需在正式 WebUI 中修复（非阻塞）"
+   },
+   "deliverables": [
+    "scripts/login.sh（--serve 启动二维码 WebUI）",
+    "tools/qr_server.py",
+    "scripts/healthcheck.sh",
+    "scripts/logs.sh"
+   ]
+  },
+  "native_hook": {
+   "status": "dynamic_confirmed（函数级验证通过，数据抓取待优化）",
+   "dynamically_confirmed": {
+    "addKernelLoginListener": "0x34ee6e1（启动时命中，a0=登录服务对象）",
+    "getLoginList": "0x34efe55 / 0x33c681a（启动时命中，a0=登录服务对象）",
+    "getQRCodePicture": "0x34eee83（出码时命中，a0=登录服务对象）",
+    "listener": "0x350a375 / 0x3509c55（登录监听回调路径命中）"
+   },
+   "observed": [
+    "napi_create_buffer_copy len=39208（疑似二维码 PNG Buffer，时序竞态下偶发）",
+    "napi_set_named_property 可读到 LocalLoginInfoList / NodeIKernelLoginService 等字段名",
+    "napi_create_string_utf8/utf16 暂未捕获到 qrcodeUrl/base64 内容（回调路径/时序待优化）"
+   ],
+   "next_actions": [
+    "同时 hook napi_create_buffer / napi_create_buffer_copy / napi_create_external_buffer，并在 getQRCodePicture onLeave 扫描/复制 PNG（89504e47 前缀）",
+    "hook listener 真实回调（0x350a375/0x3509c55）的 onLeave，读取 C++ 结构字段（pngBase64QrcodeData/qrcodeUrl）",
+    "延长 attach 窗口并 50ms 级轮询，减少时序竞态",
+    "数据抓到后：native payload 集成 + PipeOp 30-34 + 登录管理器移植"
+   ]
+  },
+  "m1_fallback_deliverable": [
+   "scripts/login.sh（截图/等待登录）",
+   "scripts/healthcheck.sh",
+   "scripts/logs.sh"
+  ],
+  "login_manager_m1": {
+   "status": "verified",
+   "implemented": [
+    "tools/login_manager.py（二维码 WebUI/状态/快速登录列表接口）",
+    "tools/qr_server.py（早期版本，保留）",
+    "scripts/login.sh --serve",
+    "scripts/healthcheck.sh",
+    "scripts/logs.sh"
+   ],
+   "verified_http": {
+    "GET /": "200, 1076B, text/html（miohh 登录页，2s 自动刷新）",
+    "GET /status": "200, 111B, application/json（phase/qq_running/onebot）",
+    "GET /api/quicklogin": "200, 13B, application/json（{\"items\":[]}）",
+    "GET /qr.png": "200, PNG 769x381（53313B 实测）"
+   },
+   "login_state_file": "/<root>/run/login.state 写入 phase（实测 waiting_qq）",
+   "note": "原生二维码数据捕获存在时序竞态（listener/buffer 路径偶发命中），M1 采用混合方案：原生负责登录态/函数钩子，二维码走截图 WebUI；原生 PNG 抓取转为后续优化项"
+  },
+  "login_e2e": {
+   "status": "verified",
+   "flow": "登录 WebUI 二维码截图 → 手机扫码 → runtime login detected → OneBot 3000/3001 启动 → 鉴权接口验证",
+   "evidence": "get_status online=true；get_login_info ok；get_group_list/get_friend_list ok；login.state=logged_in"
+  }
+ },
+ "m2_status": {
+  "date": "2026-11-13",
+  "status": "verified_sandbox",
+  "delivered": [
+   "install.sh 一键安装（依赖/钉版QQ/复制/配置/profile/systemd 可选）",
+   "scripts/qq-install.sh（钉版 QQ 下载+sha256+apt hold）",
+   "runtime/serve.py + scripts/serve.sh（miohh _serve 编排：profile→显示→envsim→QQ→login-manager→守护/清理）",
+   "bin/miohh start/stop/restart（systemd 或开发模式）、uninstall.sh",
+   "systemd/miohh.service（ExecStart=/opt/miohh/bin/miohh _serve）"
+  ],
+  "sandbox_evidence": {
+   "install": "sudo bash install.sh --prefix /data/home/miohh-deploy --skip-deps --skip-qq --no-systemd --no-link → 目录树完整",
+   "serve_start": "miohh _serve：profile 自动生成（hostname=IdeaPad-5 timezone=Asia/Shanghai locale=zh_CN.UTF-8 user=user）、复用 DISPLAY=:1、envsim(unshare+bind)+dbus-run-session 启动 QQ、login-manager 起 6080",
+   "http": "GET /qr.png → 200，75,613B，PNG 769x381；GET /status → {\"phase\":\"waiting_scan\",\"qq_running\":true}",
+   "state": "run/login.state = waiting_scan",
+   "stop": "miohh stop → 进程清理（qq/serve 均无残留）"
+  },
+  "remaining": [
+   "systemd 真实 enable/start 验证（需 systemd 环境，sandbox 未测）",
+   "真实 VPS 上依赖安装 + QQ 下载安装路径验证",
+   "healthcheck/logrotate/backup/update/diag 等 M3 脚本",
+   "登录扫码端到端（需手机配合）",
+   "OneBot 运行时接入（miohh 运行时打包/重命名，M4 前完成）"
+  ]
+ },
+ "m3_status": {
+  "date": "2026-11-13",
+  "status": "verified_systemd",
+  "delivered": [
+   "scripts/healthcheck.sh（进程/登录态/端口/磁盘/日志，JSON 输出）",
+   "scripts/diag.sh（脱敏诊断包）",
+   "scripts/backup.sh + restore.sh（配置/档案/状态；可选日志；sha256；保留7份）",
+   "scripts/update.sh（升级 + --rollback；预升级备份）",
+   "scripts/service.sh（systemd 单元/定时器/logrotate 安装/状态/卸载）",
+   "scripts/qq.sh（install/pin/unpin/status）",
+   "scripts/account.sh（list/switch/logout）",
+   "scripts/wipe.sh（--yes 安全清理）",
+   "systemd/miohh-backup.service|timer、systemd/miohh.logrotate；install.sh 安装 logrotate"
+  ],
+  "sandbox_evidence": {
+   "healthcheck_json": "{\"serve_pid\":null,\"qq_pid\":null,\"phase\":\"waiting_scan\",\"fail\":6,\"disk_free_mb\":15438,\"log_mb\":1}（serve 未运行场景语义正确）",
+   "diag": "/data/home/miohh-deploy/diag-20261113-104712.tar.gz",
+   "backup": "/data/home/miohh-deploy/backups/miohh-backup-20261113-104712.tar.gz（+sha256）",
+   "restore": "恢复完成（config/profiles/run）",
+   "update": "升级成功 + pre-update 备份；--rollback 修复后回滚成功",
+   "rename_check": "PASS（0 命中）",
+   "account": "list 输出 waiting_scan；qq status 显示 3.2.32-52194；wipe 正常"
+  },
+  "fixes": [
+   "lib.sh 移除 set -e（此前导致 JSON 模式 ok/bad 短路提前退出、healthcheck 空输出）",
+   "update --rollback 改为解析 flat 预升级备份（原 restore 期望 backup/ 结构）",
+   "rename-check 排除自身/父进程与内部模式变量、安装时清理研发自测脚本（消除误报）",
+   "install.sh 排除 tools/box_*.sh、m3fix*.sh 等测试脚本",
+   "serve 检测到 6080 被占用时拒绝复用并退出（防止状态写到旧 root）；启动即写 login.state=starting",
+   "healthcheck 重写：未登录阶段 OneBot/3000/3001 降级为 WARN，JSON 用 python 构建；install 默认生成 service.env；依赖加 logrotate"
+  ],
+  "remaining": [
+   "systemd 真实 enable/start/status + timer 触发验证（sandbox 无 systemd）",
+   "healthcheck PASS 场景（serve 运行中）实测",
+   "logrotate 实际轮转验证",
+   "原生 IPC/二维码抓取（M1 backlog）与 OneBot 运行时接入（M4 前）"
+  ],
+  "systemd_evidence": {
+   "service": "systemctl start miohh → active (running)；ExecStartPre env-check 成功；Main PID python serve",
+   "healthcheck_json": "{\"serve_pid\":62481,\"qq_pid\":62490,\"phase\":\"waiting_scan\",\"fail\":0,\"warns\":3,...}",
+   "qr_endpoint": "200，75,956B PNG（systemd 管理下）",
+   "login_state": "waiting_scan",
+   "timers": "miohh-healthcheck.timer 每 60s；miohh-backup.timer 每日 03:39（实测列出 NEXT）",
+   "healthcheck_service": "systemctl start miohh-healthcheck.service → Result=success ExecMainStatus=0",
+   "backup_service": "Result=success ExecMainStatus=0；生成 miohh-backup-*.tar.gz + sha256",
+   "logrotate": "logrotate -d /etc/logrotate.d/miohh 正常（log 已轮转）",
+   "stop": "systemctl stop → inactive；QQ 进程清理"
+  }
+ },
+ "m4_status": {
+  "date": "2026-11-13",
+  "status": "runtime_integrated_boot_verified",
+  "upstream_runtime_inventory": {
+   "files": 73,
+   "size_mb": 146.8,
+   "text_hits": 1270,
+   "text_hit_files": 18,
+   "binary_hits": 46,
+   "binary_hit_files": [
+    "native/websocket-linux-x64.node (31)",
+    "native/…-linux-x64.so (12)",
+    "native/…-linux-x64.node (3)"
+   ],
+   "native_source_in_repo": false,
+   "upstream_note": "上游项目已转 private，仅保留本地内部副本；native 组件无源码（只有预编译产物缓存仓库），因此 native 品牌擦除需二进制补丁"
+  },
+  "text_rename_alpha": {
+   "tool": "analysis/dynamic/tools/miohh_runtime_rename.py（内部，不随包分发）",
+   "staging": "packages/miohh-runtime-alpha",
+   "text_files_renamed": 62,
+   "binary_files_copied": 11,
+   "replacements": 1271,
+   "text_leftovers": 0,
+   "binary_leftovers": 46,
+   "index_mjs": "12,443,252B（原 12,446,348B，LF 保留）",
+   "coupled_token": "miohhapp / MIOHHAPP（8 字符等长，供 native 等长补丁）",
+   "renamed_native_files": [
+    "native/miohhapp-linux-x64.so",
+    "native/miohhapp-linux-x64.node",
+    "native/websocket-linux-x64.node"
+   ]
+  },
+  "native_patch_plan": {
+   "hits": {
+    "dynstr": "导出符号（…_linux_hook_*）",
+    "strtab": "C++ 符号（websocket 扩展命名空间）",
+    "rodata": "错误文案/后端标识/线程名/管道名"
+   },
+   "strategy": "对 3 个 native 文件做等长 token 替换（miohhapp/MIOHHAPP），display 文案用等长填充；补丁后跑运行时冒烟（注入/管道/OneBot）",
+   "risks": [
+    "符号表/字符串长度不一致可能破坏加载/查找",
+    "需回归注入链路",
+    "QQ 版本升级需重做契约"
+   ]
+  },
+  "next": [
+   "48h+ 长稳（需登录态；扫码一次后即可）",
+   "OneBot 3000/3001 登录后实测（需账号）",
+   "QQ 版本矩阵回归",
+   "M1 backlog：原生 IPC PipeOp 30-34 / 二维码原生抓取"
+  ],
+  "note": "对外展示仍为 miohh；miohhapp 仅用于 ABI/管道/环境变量/文件名的 8 字符等长槽位；如需更换 token 可调整",
+  "native_patch": {
+   "tool": "analysis/dynamic/tools/miohh_native_patch.py（内部）",
+   "token": "miohhapp / MIOHHAPP（8 字符等长）",
+   "files": {
+    "miohhapp-linux-x64.node": {
+     "replaced": 3,
+     "size": 203872,
+     "gnu_hash_ok": true
+    },
+    "miohhapp-linux-x64.so": {
+     "replaced": 12,
+     "size": 425216,
+     "gnu_hash_ok": true
+    },
+    "websocket-linux-x64.node": {
+     "replaced": 31,
+     "size": 105360,
+     "gnu_hash_ok": true
+    }
+   },
+   "hash_rebuild": "GNU hash：所有 bucket 指向同一链首 + bloom 全 1（兼容任意符号顺序）；SysV hash 不存在",
+   "size_after": "与原始完全一致（等长补丁）",
+   "smoke": {
+    "payload_so_dlopen": "OK",
+    "payload_so_dlsym_new": "miohhapp_linux_hook_backend_version / is_loaded / start_dynamic / stop_dynamic / control_socket / recv_socket 全部 FOUND",
+    "payload_so_dlsym_old": "NULL（旧符号不存在）",
+    "node_addons_require": "websocket-linux-x64.node 与 miohhapp-linux-x64.node 在 Node v22.23.3 下 require 加载 OK（C 直接 dlopen 因缺 napi 符号属预期）"
+   }
+  },
+  "beta_runtime": {
+   "path": "packages/miohh-runtime-beta",
+   "text_leftovers": 0,
+   "binary_leftovers": 0,
+   "files": 73,
+   "note": "文本 1271 处替换 + native 46 处等长补丁后，整包（含 native 与 node 二进制）品牌残留 0"
+  },
+  "fork_notes": "上游已 private；社区存在公开 fork（如 DandanLLab/SnowCatQQ 全源码社区版）与 200+ fork，但 native 源码仍未公开；当前 native 采用等长补丁路线已验证",
+  "bundled_runtime_integration": {
+   "path": "packages/miohh/runtime/bundled（已随发布包）",
+   "serve_integration": "runtime/serve.py 自动检测并启动 bundled runtime（MIOHH_RUNTIME=0 可关闭；端口/日志目录可配）",
+   "boot_smoke": {
+    "webui": "GET http://127.0.0.1:5099/ → 200（6201B）",
+    "login_webui": "GET http://127.0.0.1:6080/status → waiting_scan，qq_running=true",
+    "runtime_log": "miohh starting / hook auto-load enabled / WebUI listening / Hook pipe connected to QQ PID / private-message reporting available",
+    "injection": "payload 已注入 QQ 进程并建立 mojo control/recv 管道（/tmp/envsim-runtime-*/mojo.<pid>.*.sock）",
+    "ports": [
+     "127.0.0.1:6080 登录WebUI",
+     "127.0.0.1:5099 runtime WebUI"
+    ],
+    "sqlite": "sqlite/ffmpeg 原生子件已补齐；login.db 读取告警消失（sqlite addon 加载 OK）"
+   }
+  },
+  "native_re": {
+   "tool": "IG5（Ghidra provider）静态分析补丁后 payload .so",
+   "observations": [
+    "ELF64，859 函数，导出符号 miohhapp_linux_hook_{backend_version,is_loaded,start_dynamic,stop_dynamic,control_socket,recv_socket} 全部存在",
+    "start_dynamic 反编译：getpid() → 初始化(pid,1) → 返回标志；control_socket 返回全局句柄（与 hook stub 语义一致）",
+    "扫描无品牌命中；导入含 socket/bind/listen/send/recv/fork/process_vm_readv/mprotect/dlopen/dlsym（与注入/管道通信实现一致）",
+    ".rodata 熵 7.68（高熵，疑似压缩/加密嵌入数据）→ 后续可继续深挖（可能含隐藏串/载荷）"
+   ]
+  },
+  "release_package": {
+   "file": "miohh-0.1.0-linux-x64.tar.gz",
+   "size": 53040349,
+   "sha256": "6cf402c17bd5ea794c247495b75609adaa0db1eb5f33b73fd0a06d53de37d2fd",
+   "files": 130,
+   "contains": [
+    "install.sh",
+    "README.md",
+    "qts.service（miohh.service alias）",
+    "qq_launch.py",
+    "qq-guard.sh+timers",
+    "env 清洗",
+    "patched native",
+    "登录面板/控制台"
+   ],
+   "gate": "make_package release ci_check PASS",
+   "local": "D:\\整理\\nc\\packages\\dist\\miohh-0.1.0-linux-x64.tar.gz"
+  },
+  "rodata_analysis": {
+   "tool": "自写解析 + IG5",
+   "result": ".rodata 高熵为分散小块（256-1280B），无 gzip/zlib/xz/zstd 头且 zlib 解压无候选；属协议表/常量数据，不是隐藏品牌载体",
+   "note": "如需更深，可对 .text 引用 .rodata 的访问点做数据流分析（后续可选）"
+  },
+  "soak_finding": {
+   "bug": "systemd 单元 WatchdogSec=60 但 serve.py 未实现 watchdog 心跳 → systemd 每分钟 SIGABRT 杀主进程并重启（NRestarts 7 次/7min）",
+   "fix": "移除 WatchdogSec（改为 Restart=always + healthcheck timer 外部巡检）",
+   "verify": "重跑：运行 70s+ NRestarts=0，WebUI 200，healthcheck fail=0；更长 soak 仍待做"
+  },
+  "acceptance_regression": {
+   "date": "2026-11-13",
+   "flow": "解包最终发布包 → manifest 校验 → install.sh --skip-deps --skip-qq → systemd enable/start → 检查",
+   "results": {
+    "manifest": "OK",
+    "service": "active，NRestarts=0（>66s 观察）；旧 watchdog bug 不复现",
+    "miohh version": "0.1.0",
+    "runtime_webui": "200",
+    "login_webui": "waiting_scan / qq_running=true",
+    "runtime_hook": "pipe connected（注入成功）",
+    "soak_6min": "12 个 30s 采样：全 active、NRestarts=0、webui=200、errors=0；RSS runtime 136→111MB、QQ 342→213MB（稳定收敛）"
+   },
+   "onebot_e2e": {
+    "status": "verified",
+    "login": "runtime 日志 login detected（UIN 已记录在 runtime data/config/onebot_<uin>.json）",
+    "endpoints_verified": {
+     "get_status": "ok, online=true, good=true",
+     "get_login_info": "ok, user_id/nickname 正常返回",
+     "get_version_info": "app_name=miohh, app_version=2.4.2-node, protocol=v11",
+     "get_group_list": "ok（真实群列表返回）",
+     "get_friend_list": "ok（真实好友列表返回）"
+    },
+    "auth": "OneBot accessToken 位于 data/runtime/config/onebot_<uin>.json（httpServers[0].accessToken）；login_manager 已改为读取并带 Bearer 鉴权",
+    "login_manager_fix": "读取 token 后 /status=logged_in，run/login.state=logged_in",
+    "note": "真实账号数据不回填到仓库/聊天，仅作验证"
+   }
+  },
+  "hook_leak_audit": {
+   "date": "2026-11-13",
+   "method": "注入态 QQ 进程视角：env/maps/threads/fd/unix socket/内存品牌串扫描",
+   "findings": {
+    "high": [
+     "环境变量泄漏：MIOHH_ROOT/MIOHH_DISPLAY/MIOHH_LOGIN_PORT/MIOHH_ENVCHECK_SKIP/ENVSIM_PROFILE/FAKEMEM/HOSTN/LOCALE_NAME/RUNUSER/TZ_NAME/WORK/PROFILE 等进入 QQ env（/proc/self/environ 可读）",
+     "maps 出现 /memfd:nnp-resident-dispatch (deleted)（manual-map 区域名称可被 /proc/self/maps 读到）",
+     "unix socket 路径全局可见：/tmp/envsim-runtime-1000/mojo.<pid>.{control,recv}.sock（/proc/net/unix）"
+    ],
+    "medium": [
+     "线程名 miohhapp-pipe-w 出现在 /proc/self/task/*/comm",
+     "匿名 r-xp payload 区（约 332KB）在 maps 中无文件路径（manual map 固有权重）",
+     "内存品牌串：miohh×8、nnp×34（含 socket 路径/memfd 名），linux_hook/MIOHHAPP 未检出"
+    ],
+    "good": [
+     "TracerPid=0（无残留 ptrace）",
+     "payload 无文件路径映射（不落盘）",
+     "未发现 frida 进程/端口/环境痕迹"
+    ]
+   },
+   "hardening_applied": [
+    "serve.py clean_env_for_qq()：启动 QQ 前剔除 MIOHH_*/ENVSIM_*/PROFILE/WORK/FAKEMEM/HOSTN/RUNUSER/LOCALE_NAME/TZ_NAME 及 systemd 注入变量",
+    "envsim.sh：XDG_RUNTIME_DIR 改为 /run/user/<uid>（标准路径）；最终 exec 前 unset ENVSIM_PROFILE/FAKEMEM/HOSTN/LOCALE_NAME/TZ_NAME/RUNUSER/WORK",
+    "待做：payload 线程名 miohhapp-pipe-w → 中性名（等长替换）；memfd 名 nnp-resident-dispatch → 中性名；socket 连接后 unlink 隐藏路径"
+   ],
+   "additional_findings": {
+    "parent_chain": "QQ 可读父进程链：ppid=dbus-run-session、祖父=unshare(envsim 脚本，含 envsim 字样)、曾祖父=python3 /opt/miohh/runtime/serve.py → 泄漏部署路径与沙箱意图",
+    "cgroup": "/proc/self/cgroup = /system.slice/miohh.service → 泄漏服务名",
+    "filesystem_perms": "加固前 /opt/miohh/logs 等对 user 可读（QQ 用户可读 hook 日志）；已 chmod 700 /opt/miohh 及 logs/data/run/profiles/config，验证 user 不可读",
+    "tmp_artifacts": "/tmp/miohh_login_qr.png 644、/tmp/miohh-*.txt 用户可写（测试残留）；生产应清理并收紧",
+    "hardening_plan": [
+     "父进程链：QQ 由中性小 launcher/transient scope 拉起，断掉 serve/envsim 可见链；envsim 脚本/命令改名中性",
+     "cgroup：主服务/QQ scope 改中性 unit 名（如 system-qq.service）",
+     "socket 目录：/run/user/<uid>（已改代码，需重启生效）；连接后 unlink socket 路径",
+     "线程名/memfd 名等长替换（miohhapp-pipe-w → 中性；nnp-resident-dispatch → 中性）",
+     "发布前跑 leak_audit 评分门禁"
+    ]
+   },
+   "fixed_env": {
+    "status": "verified",
+    "before": "QQ env 泄漏 MIOHH_*/ENVSIM_*/FAKEMEM/HOSTN/RUNUSER/TZ_NAME/PROFILE/WORK/LOCALE_NAME/SYSTEMD_*",
+    "after": "QQ env 仅剩 DBUS_SESSION_BUS_ADDRESS DISPLAY HOME LANG LC_ALL LOGNAME PATH PWD SHLVL TZ USER XDG_RUNTIME_DIR",
+    "how": "serve.py 对 QQ 使用最小环境 + envsim root 分支 setpriv env 前 unset 内部变量 + XDG_RUNTIME_DIR 改 /run/user/<uid>"
+   }
+  },
+  "hot_update_risk": {
+   "confirmed": true,
+   "evidence": {
+    "log": "~/.config/QQ/log/updater.log",
+    "newVersion": "3.2.35-54395",
+    "curVersion": "3.2.32-52194",
+    "downloaded": "~/.config/QQ/versions/3.2.35-54395.zip (386MB) + .zip.zip (184MB) + 解压目录",
+    "state": "READY（下次 QQ 重启会应用新版本）"
+   },
+   "impact": "热更新绕过 apt 版本锁定；新版本可能导致 hook 契约失效/环境指纹变化",
+   "mitigation_applied_sandbox": [
+    "删除已下载 versions 内容（917MB）",
+    "~/.config/QQ/versions 重建为 root:root 555 空目录（QQ 用户不可写）",
+    "验证：登录态/OneBot 仍 online"
+   ],
+   "product_fixes_required": [
+    "install.sh 在 QQ 已存在时也执行 apt-mark hold linuxqq（当前 sandbox 未 hold）",
+    "新增 scripts/qq-guard.sh + systemd timer（每 5 分钟：清空/锁定 versions、检测版本漂移）",
+    "healthcheck 增加：QQ 版本必须等于 3.2.32-52194；versions 目录必须为空/不可写",
+    "重启验证：read-only versions 下 QQ 仍能从 /opt/QQ 启动 3.2.32"
+   ],
+   "incident": {
+    "issue": "首版屏蔽方案把 ~/.config/QQ/versions 设为 root:root 555，QQ launcher 启动时写 versions/config.json 报 EACCES → 界面报错/启动异常",
+    "root_cause_log": "app_launcher-*.log: EACCES permission denied, open 'versions/config.json'（Launcher.initConfigFile）",
+    "safe_solution": [
+     "versions 目录归还 QQ 运行用户可写（775）",
+     "写入合法 config.json（baseVersion/curVersion=3.2.32-52194）与 setting.json",
+     "qq-guard 只删除更新包（数字版本目录 + *.zip*），保留/回写 config",
+     "serve.py 启动 QQ 前执行 qq-guard；systemd timer 每 2 分钟兜底；apt-mark hold；healthcheck 只统计更新包并校验 curVersion"
+    ],
+    "verified": [
+     "修复后 QQ 从 /opt/QQ/qq 正常启动，launcher 日志无 EACCES，界面无报错",
+     "伪造 3.2.35 更新包目录+zip → guard 清理干净，config 保留且 curVersion=3.2.32-52194",
+     "服务 active，QQ 进程正常"
+    ]
+   }
+  },
+  "panels_verified": {
+   "date": "2026-11-13",
+   "login_webui_6080": {
+    "url": "http://127.0.0.1:6080/",
+    "screenshot": "D:\\整理\\nc\\analysis\\dynamic\\box-out\\panel-6080.png",
+    "title": "miohh 登录",
+    "state": "logged_in（已扫码登录；登录后二维码自动隐藏显示已登录）",
+    "qr_auto_refresh": "页面每 2s 重新拉取 /qr.png；服务端每次请求实时截屏（1s 缓存）→ 实测 100s 采样中 QR 哈希在 ~40s 变化（QQ 自动刷新后自动跟随）",
+    "quicklogin_section": "页面含快速登录区块；/api/quicklogin 目前 items 为空（待接入 runtime 账号列表）"
+   },
+   "runtime_webui_5099": {
+    "url": "http://127.0.0.1:5099/",
+    "title": "miohh 控制台",
+    "screenshot": "D:\\整理\\nc\\analysis\\dynamic\\box-out\\panel-5099b.png",
+    "login": "POST /api/login {password} → success+token（token 文件 data/runtime/webui-password）；API 支持 x-miohh-token / Bearer",
+    "verified_apis": {
+     "/api/status": "running",
+     "/api/qq-list": "QQ 账号列表正常",
+     "/api/connections": "http-default ok / ws-default ok",
+     "/api/processes": "QQ injected=true connected=true loggedIn=true status=online method=loadModuleManual",
+     "/api/system": "hostname/platform/arch/node v24.22.1 等正常"
+    }
+   },
+   "onebot": {
+    "http_3000": "ok online=true",
+    "ws_3001": "listening",
+    "version_info": "app_name=miohh app_version=2.4.2-node protocol=v11"
+   }
+  },
+  "hardening_v2": {
+   "date": "2026-11-13",
+   "verified_after_restart": {
+    "env": "QQ environ 仅 DBUS_SESSION_BUS_ADDRESS/DISPLAY/HOME/LANG/LC_ALL/LC_CTYPE/LOGNAME/PATH/PWD/SHLVL/TZ/USER/XDG_RUNTIME_DIR（无 MIOHH/ENVSIM/SYSTEMD/RUN_DIR）",
+    "parent_chain": "QQ → dbus-run-session → unshare(ppid=1)；祖先 cmdline 无 miohh/serve.py/envsim 命中",
+    "cgroup": "改为 /system.slice/qts.service（中性单元名；miohh.service 作为 alias 保持兼容）",
+    "threads": "payload 线程名已等长替换为 ThreadPoolSingl，无 miohhapp 线程",
+    "xdg_runtime_dir": "/run/user/1000（标准路径）",
+    "injection": "pipe connected 正常（补丁后 payload 可用）"
+   },
+   "remaining": [
+    "/proc/self/maps 可见 /memfd:nnp-resident-dispatch (deleted)（名称运行时构造，二进制内无明文字符串；需 RE/运行时拦截才能改，风险中）",
+    "/proc/net/unix 可见 /run/user/1000/mojo.<pid>.{control,recv}.sock（路径标准、mojo 命名像 Chromium，风险低-中）",
+    "内存品牌串：导出符号名 miohhapp_linux_hook_* 等（功能必需，风险中；可后续连同 injector 一起改中性 token）"
+   ],
+   "files": {
+    "runtime/serve.py": "最小环境 + daemonized launcher + qq watchdog + guard 前置",
+    "runtime/qq_launch.py": "双重 fork（父进程链断到 PID 1）",
+    "envsim/envsim.sh": "XDG_RUNTIME_DIR=/run/user/<uid>；最终 exec 清空内部变量；argv0 中性 qts",
+    "systemd/qts.service": "中性主单元（Alias=miohh.service）",
+    "native .so": "线程名/soname/backend 标识等长中性化"
+   }
+  }
+ }
+}

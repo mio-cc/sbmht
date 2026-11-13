@@ -1,0 +1,10 @@
+{
+  "package": "@appthreat/sqlite3",
+  "version": "9.1.0",
+  "nativeInterface": 1,
+  "target": "linux-x64",
+  "files": [
+    "prebuilds/linux-x64/@appthreat+sqlite3.glibc.node",
+    "prebuilds/linux-x64/@appthreat+sqlite3.musl.node"
+  ]
+}

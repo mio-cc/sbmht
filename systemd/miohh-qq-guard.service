@@ -1,0 +1,8 @@
+[Unit]
+Description=miohh QQ hot-update guard
+
+[Service]
+Type=oneshot
+ExecStart=/opt/miohh/bin/miohh qq-guard
+Nice=10
+IOSchedulingClass=idle

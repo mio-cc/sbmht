@@ -1,0 +1,124 @@
+#!/usr/bin/env bash
+# miohh CLI（部署后 /usr/local/bin/miohh -> /opt/miohh/bin/miohh）
+set -euo pipefail
+SELF="$(readlink -f "${BASH_SOURCE[0]}")"
+HERE="$(cd "$(dirname "$SELF")/.." && pwd)"
+ROOT="${MIOHH_ROOT:-$HERE}"
+export MIOHH_ROOT="$ROOT"
+SCRIPTS="$ROOT/scripts"
+RUN="$ROOT/run"
+
+usage() {
+  cat <<'EOF'
+miohh — QQ + 中间层（单一部署物）
+
+用法: miohh <命令> [参数]
+
+服务:
+  install                 一键安装
+  uninstall [--purge]     卸载
+  start|stop|restart      服务控制（systemd 或开发模式）
+  _serve                  内部：运行时编排（systemd ExecStart）
+  status [--json]         运行状态
+  service install         安装/刷新 systemd 单元
+
+登录/账号:
+  login [--screenshot|--serve]   登录（二维码 WebUI/截图）
+  account list|switch|logout     账号管理（M2+）
+
+环境:
+  env-check [--json]      部署环境门禁
+  profile-gen [--account X]   生成设备档案
+  selftest                自检
+
+运维:
+  healthcheck [--json]    健康检查
+  logs [--follow] [--since T]  日志
+  diag                    脱敏诊断包
+  backup [--dir D]        备份
+  restore [--from F]      恢复
+  update [--rollback]     升级/回滚
+  rename-check [--strict] 品牌门禁（需内部模式文件）
+  wipe [--yes]            安全清理
+  qq install|pin          QQ 安装/版本锁定
+
+其它:
+  version                 版本
+  help                    帮助
+EOF
+}
+
+dev_start() {
+  [ "$(id -u)" = "0" ] || { echo "[miohh] 开发模式启动需要 root" >&2; exit 2; }
+  mkdir -p "$RUN"
+  if [ -f "$RUN/serve.pid" ] && kill -0 "$(cat "$RUN/serve.pid" 2>/dev/null)" 2>/dev/null; then
+    echo "[miohh] 已在运行 pid=$(cat "$RUN/serve.pid")"; return 0
+  fi
+  nohup setsid "$ROOT/bin/miohh" _serve >> "$ROOT/logs/serve.out" 2>&1 &
+  echo $! > "$RUN/serve.pid"
+  sleep 1
+  echo "[miohh] 已启动（开发模式）pid=$(cat "$RUN/serve.pid")"
+}
+dev_stop() {
+  if [ -f "$RUN/serve.pid" ]; then
+    pid="$(cat "$RUN/serve.pid" 2>/dev/null || true)"
+    if [ -n "$pid" ] && kill -0 "$pid" 2>/dev/null; then
+      kill -TERM "$pid" 2>/dev/null || true
+      for _ in $(seq 1 20); do kill -0 "$pid" 2>/dev/null || break; sleep 0.3; done
+      kill -KILL "$pid" 2>/dev/null || true
+      echo "[miohh] 已停止 pid=$pid"
+    else
+      echo "[miohh] pid 文件存在但进程不在"
+    fi
+    rm -f "$RUN/serve.pid"
+  else
+    echo "[miohh] 未在运行（无 pid 文件）"
+  fi
+}
+
+cmd="${1:-help}"; shift || true
+case "$cmd" in
+  help|-h|--help) usage ;;
+  version) echo "miohh $(cat "$ROOT/VERSION" 2>/dev/null | head -1 | tr -d '[:space:]')" ;;
+  env-check) exec bash "$SCRIPTS/env-check.sh" "$@" ;;
+  profile-gen) exec bash "$SCRIPTS/profile-gen.sh" "$@" ;;
+  rename-check) exec bash "$SCRIPTS/rename-check.sh" "$@" ;;
+  selftest) exec bash "$SCRIPTS/selftest.sh" "$@" ;;
+  status) exec bash "$SCRIPTS/status.sh" "$@" ;;
+  login) exec bash "$SCRIPTS/login.sh" "$@" ;;
+  _serve) exec bash "$SCRIPTS/serve.sh" "$@" ;;
+  start)
+    if command -v systemctl >/dev/null 2>&1 && systemctl list-unit-files 2>/dev/null | grep -qE '^(qts|miohh)\.service'; then
+      exec systemctl start qts
+    fi
+    dev_start ;;
+  stop)
+    if command -v systemctl >/dev/null 2>&1 && systemctl list-unit-files 2>/dev/null | grep -qE '^(qts|miohh)\.service'; then
+      exec systemctl stop qts
+    fi
+    dev_stop ;;
+  restart) "$0" stop || true; "$0" start ;;
+  install) exec bash "$ROOT/install.sh" "$@" ;;
+  uninstall)
+    if [ -x "$SCRIPTS/uninstall.sh" ]; then exec bash "$SCRIPTS/uninstall.sh" "$@"; fi
+    echo "[miohh] uninstall 待实现" >&2; exit 2 ;;
+  healthcheck)
+    if [ -x "$SCRIPTS/healthcheck.sh" ]; then exec bash "$SCRIPTS/healthcheck.sh" "$@"; fi
+    echo "[miohh] healthcheck 待实现" >&2; exit 2 ;;
+  qq-guard) exec bash "$SCRIPTS/qq-guard.sh" "$@" ;;
+  account|logs|diag|backup|restore|update|wipe|qq)
+    if [ -x "$SCRIPTS/$cmd.sh" ]; then exec bash "$SCRIPTS/$cmd.sh" "$@"; fi
+    echo "[miohh] '$cmd' 待实现（M2-M3）" >&2; exit 2 ;;
+  service)
+    if [ -x "$SCRIPTS/service.sh" ]; then exec bash "$SCRIPTS/service.sh" "$@"; fi
+    if [ -d /etc/systemd/system ]; then
+      cp -f "$ROOT/systemd/"*.service /etc/systemd/system/ 2>/dev/null || true
+      cp -f "$ROOT/systemd/"*.timer /etc/systemd/system/ 2>/dev/null || true
+      systemctl daemon-reload
+      echo "[miohh] systemd 单元已安装"
+    else
+      echo "[miohh] systemd 不可用" >&2; exit 2
+    fi ;;
+  *)
+    echo "[miohh] 未知命令: $cmd" >&2; usage; exit 2 ;;
+esac

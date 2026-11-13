@@ -1,0 +1,10 @@
+/opt/miohh/logs/*.log /opt/miohh/logs/*.out {
+    weekly
+    rotate 4
+    compress
+    delaycompress
+    missingok
+    notifempty
+    copytruncate
+    create 0600 root root
+}

@@ -1,0 +1,47 @@
+# miohh 主配置（复制为 /opt/miohh/config/miohh.yaml）
+account:
+  uin: ""                 # 留空：登录后自动识别
+  display_name: ""        # 留空：使用 envsim 档案的设备名
+
+login:
+  mode: qr                # qr（登录前注入，程序化出码） | stealth（登录后注入 + 截图兜底）
+  qr_ttl_seconds: 120
+  auto_refresh_qr: true
+  quick_login: true
+  auto_login_switch: true
+
+envsim:
+  enabled: true
+  profile: auto           # 或 profiles/<account>.json
+  display: 1920x1080
+  timezone: ""            # 留空：自动（UTC 环境默认中文画像）
+  locale: ""
+
+service:
+  inject_mode: prelogin   # prelogin | postlogin
+  onebot:
+    http: { host: 127.0.0.1, port: 3000, token: "auto" }
+    ws:   { host: 127.0.0.1, port: 3001, token: "auto" }
+  webui:
+    host: 127.0.0.1
+    port: 5099
+    password: "auto"
+
+logging:
+  level: info
+  dir: /opt/miohh/logs
+  redact: [qrcode, token, message_body, uin_mask]
+
+update:
+  channel: stable
+  qq_version_pin: "3.2.32-52194"
+# bundled runtime（OneBot/WebUI，存在时自动启动）
+runtime:
+  entry: runtime/bundled/index.mjs
+  webui_host: 127.0.0.1
+  webui_port: 5099
+  onebot_http_port: 3000
+  onebot_ws_port: 3001
+  accept_eula: true
+  accept_privacy: true
+  hook_autoload: true

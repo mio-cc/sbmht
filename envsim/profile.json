@@ -1,0 +1,21 @@
+{
+  "hostname": "DESKTOP-7K3Q2M9",
+  "cpu": {
+    "vendor_id": "GenuineIntel",
+    "family": 6,
+    "model": 158,
+    "stepping": 9,
+    "model_name": "Intel(R) Core(TM) i5-7400 CPU @ 3.00GHz",
+    "mhz": 3000,
+    "cache_kb": 6144,
+    "processors": 4,
+    "flags": ["fpu","vme","de","pse","tsc","msr","pae","mce","cx8","apic","sep","mtrr","pge","mca","cmov","pat","pse36","clflush","mmx","fxsr","sse","sse2","ht","syscall","nx","lm","constant_tsc","rep_good","nopl","xtopology","cpuid","pni","pclmulqdq","ssse3","sse4_1","sse4_2","x2apic","movbe","popcnt","tsc_deadline_timer","aes","xsave","avx","f16c","rdrand","fsgsbase","bmi1","avx2","smep","bmi2","erms","invpcid","mpx","rdseed","adx","smap","clflushopt","clwb","intel_pt","xsaveopt","xsavec","xgetbv1","xsaves","pti"]
+  },
+  "mem_total_kb": 8162000,
+  "fake_meminfo": false,
+  "machine_id": "b7c1e5d94a2f4c8e9d3b6a1f0c2e7d45",
+  "display": "1920x1080",
+  "locale": "zh_CN.UTF-8",
+  "timezone": "Asia/Shanghai",
+  "user": "user"
+}

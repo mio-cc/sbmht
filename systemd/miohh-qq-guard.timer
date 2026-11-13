@@ -1,0 +1,10 @@
+[Unit]
+Description=miohh QQ hot-update guard timer
+
+[Timer]
+OnBootSec=90s
+OnUnitActiveSec=2min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

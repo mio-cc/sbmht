@@ -1,0 +1,27 @@
+# 运行时二进制/构建产物/运行状态（不提交）
+
+## 构建/打包产物
+dist/
+*.tar.gz
+*.zip
+
+## bundled runtime 的 node 可执行文件（约 126MB，超过 GitHub 100MB 单文件限制）
+## 其余运行时资源（index.mjs / client / native）随仓库提交。
+runtime/bundled/node
+
+## 运行状态（绝不提交）
+data/
+logs/
+run/
+profiles/
+backups/
+screens/
+diag-*.tar.gz
+
+## Python
+__pycache__/
+*.pyc
+
+## 系统/编辑器
+.DS_Store
+*.swp

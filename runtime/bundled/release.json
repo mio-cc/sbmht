@@ -1,0 +1,15 @@
+{
+  "version": "2.4.2",
+  "target": "linux-x64",
+  "entries": [
+    "EULA.md",
+    "PRIVACY.md",
+    "check-node-version.cjs",
+    "client",
+    "index.mjs",
+    "launcher.sh",
+    "native",
+    "package.json",
+    "release.json"
+  ]
+}
